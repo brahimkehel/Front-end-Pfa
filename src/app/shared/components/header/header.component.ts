@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit, Output,EventEmitter } from '@angular/core';
 
 
@@ -11,7 +12,7 @@ export class HeaderComponent implements OnInit {
 
   @Output() _toggleSideBar : EventEmitter<any>=new EventEmitter();
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {  }
 
@@ -19,4 +20,9 @@ export class HeaderComponent implements OnInit {
     this._toggleSideBar.emit();
   }
 
+  onLogOut()
+  {
+    localStorage.removeItem('token');
+    this.router.navigate(['Authentification']);
+  }
 }

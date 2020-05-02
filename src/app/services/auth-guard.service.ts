@@ -7,15 +7,17 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AuthGuardService implements CanActivate{
+
   constructor(private authservice:AuthService,private router:Router) { }
   canActivate(
     route:ActivatedRouteSnapshot,
     state:RouterStateSnapshot
-  ):Observable<boolean> | Promise<boolean> | boolean{
-    if(this.authservice.getUtilisateur){
+  ):boolean{
+    if(localStorage.getItem('token')!=null){
       return true;
     }else{
-      this.router.navigate(['']);
+      this.router.navigate(['Authentification']);
+      return false;
     }
   }
   

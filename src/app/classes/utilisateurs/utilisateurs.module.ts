@@ -9,8 +9,7 @@ import { CommonModule } from '@angular/common';
     CommonModule
   ]
 })
-export class UtilisateursModule { 
-  id:number;
+export class UtilisateursModule {
   email:string;
   motdepasse:string;
 }

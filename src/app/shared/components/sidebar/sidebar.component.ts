@@ -1,3 +1,6 @@
+import { UtilisateursModule } from './../../../classes/utilisateurs/utilisateurs.module';
+import { AuthService } from './../../../services/auth.service';
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor() { }
+   userd:any;
+  constructor(private auth:AuthService,private router:Router) { }
 
   ngOnInit(): void {
+    this.auth.getUserProfile().subscribe(
+      res=>{
+      },
+      err=>{
+        console.log(err);
+      }
+    );
   }
 
 }
