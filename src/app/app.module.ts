@@ -24,11 +24,11 @@ import { AuthInterceptor } from './services/auth.interceptor';
     HttpClientModule,
     FormsModule
   ],
-  providers: [AuthService,{
+  providers: [/*AuthService,{
     provide:HTTP_INTERCEPTORS,
     useClass:AuthInterceptor,
     multi:true
-  }],
+  }*/],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

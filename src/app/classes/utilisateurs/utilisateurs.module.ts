@@ -10,6 +10,10 @@ import { CommonModule } from '@angular/common';
   ]
 })
 export class UtilisateursModule {
+  id:string;
+  nom:string;
+  prenom:string;
   email:string;
   motdepasse:string;
+  _status:string;
 }

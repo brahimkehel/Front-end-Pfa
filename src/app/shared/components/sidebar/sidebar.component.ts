@@ -10,17 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-   userd:any;
+   userd:UtilisateursModule;
   constructor(private auth:AuthService,private router:Router) { }
 
   ngOnInit(): void {
-    this.auth.getUserProfile().subscribe(
-      res=>{
-      },
-      err=>{
-        console.log(err);
-      }
-    );
+    this.userd={
+    id:localStorage.getItem('id'),
+    email:localStorage.getItem('email'),
+    nom:localStorage.getItem('nom'),
+    prenom:localStorage.getItem('prenom'),
+    _status:localStorage.getItem('_status'),
+    motdepasse:null
+  }
   }
 
 }

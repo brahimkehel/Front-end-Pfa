@@ -22,7 +22,7 @@ export class HeaderComponent implements OnInit {
 
   onLogOut()
   {
-    localStorage.removeItem('token');
+    localStorage.removeItem('email');
     this.router.navigate(['Authentification']);
   }
 }

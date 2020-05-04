@@ -14,10 +14,7 @@ export class AuthService {
   constructor(private http:HttpClient,private router:Router) { }
 
   login(){
-    return this.http.post(this.url+"/Administrateurs/Login",this.utilisateur);
-  }
-  getUserProfile(){
-    return this.http.get('http://localhost:54370/api/User');
+    return this.http.post(this.url+"/Utilisateurs/Login",this.utilisateur);
   }
 
 }

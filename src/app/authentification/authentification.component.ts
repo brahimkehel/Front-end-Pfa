@@ -15,17 +15,25 @@ export class AuthentificationComponent implements OnInit {
 
   ngOnInit(): void {
     this.authservice.utilisateur={
+      id:null,
+      nom:null,
+      prenom:null,
       email:null,
-      motdepasse:null
+      motdepasse:null,
+      _status:null
     };
-    if(localStorage.getItem('token')!=null){
+    if(localStorage.getItem('email')!=null){
       this.router.navigateByUrl('Acceuil');
     }
   }
   onSubmit(){
     this.authservice.login().subscribe(
-      (res:any)=>{
-        localStorage.setItem('token',res.token);
+      (res:UtilisateursModule)=>{
+        localStorage.setItem('email',res.email);
+        localStorage.setItem('nom',res.nom);
+        localStorage.setItem('prenom',res.prenom);
+        localStorage.setItem('_status',res._status);
+        localStorage.setItem('id',res.id);
         this.router.navigateByUrl('Acceuil');
       },
       err=>{
