@@ -2,6 +2,15 @@ mat-toolbar{
     background-color:#1F2833;
     color:#C5C6C7;
 }
+ul{
+    
+    margin-bottom: 0;
+}
 ul li{
+    display: inline;
     list-style:none;
+    padding: 0;
+}
+#spance{
+    flex: 100%;
 }
