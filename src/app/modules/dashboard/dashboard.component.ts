@@ -14,11 +14,5 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onOpen(){
-    const dialogConfig=new MatDialogConfig();
-    dialogConfig.disableClose=true;
-    dialogConfig.autoFocus=true;
-    dialogConfig.width="60%";
-    this.dialog.open(UserDataComponent);
-  }
+  
 }

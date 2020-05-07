@@ -18,7 +18,11 @@ const routes: Routes = [
   component:DefaultComponent,
   children:[{
     path:'',
-    component:DashboardComponent
+    component:DashboardComponent,
+    children:[{
+      path:'',
+      component:UserDataListComponent
+    }]
   }],
   canActivate:[AuthGuardService]
 }];
