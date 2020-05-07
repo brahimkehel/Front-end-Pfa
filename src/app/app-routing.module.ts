@@ -16,22 +16,17 @@ const routes: Routes = [
   },
   {path: 'Acceuil',
   component:DefaultComponent,
-<<<<<<< HEAD
   children:[{
     path:'',
     component:DashboardComponent,
     children:[{
       path:'',
       component:UserDataListComponent
-    }]
-  }],
-=======
-  children:[
-    {path:'',
-    component:DashboardComponent},
+    },
     {path:'posts',
-    component:PostsComponent}],
->>>>>>> c56f137f42a7221877a8c1f273210bc081a82d2c
+    component:PostsComponent}
+  ]
+  }],
   canActivate:[AuthGuardService]
 }];
 

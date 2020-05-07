@@ -34,11 +34,9 @@
     "highcharts": "^8.0.4",
     "highcharts-angular": "^2.4.0",
     "jquery": "^3.4.1",
-<<<<<<< HEAD
+
     "ngx-perfect-scrollbar": "^9.0.0",
     "popper.js": "^1.16.1",
-=======
->>>>>>> c56f137f42a7221877a8c1f273210bc081a82d2c
     "primeng": "^9.0.6",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
