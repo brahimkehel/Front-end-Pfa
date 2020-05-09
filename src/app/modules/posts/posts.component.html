@@ -1,4 +1,31 @@
-
-<div fxLayout="row" fxLayout="space-between center" class="mat-card">
- 
+<div style="text-align: center;">
+<button class="mat-fab"><mat-icon class="material-icons" inline=true>add</mat-icon></button>
+    <h2>Ajouter Enseignant</h2>
 </div>
+
+<div class="container">         
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th *ngFor="let header of columnlist">{{header}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let ens of this.service.Enseignants">
+          <td>{{ens.nom}}</td>
+          <td>{{ens.prenom}}</td>
+          <td>{{ens.email}}</td>
+          <td>{{ens.cin}}</td>
+          <td>{{ens.dateNais | date:'mediumDate'}}</td>
+          <td>{{ens.adresse}}</td>
+          <td>{{ens.telephnoe}}</td>
+          <td>{{ens.dateEmb}}</td>
+          <td>{{ens.cnss}}</td>
+          <td>{{ens.salaire}}</td>
+          <td><a><mat-icon class="material-icons" style="cursor: pointer;">create</mat-icon></a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+    

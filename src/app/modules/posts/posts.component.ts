@@ -1,6 +1,5 @@
 import { EnsService } from './../../services/ens.service';
 import { Component, OnInit } from '@angular/core';
-import { MatTableDataSource } from '@angular/material/table'
 
 @Component({
   selector: 'app-posts',
@@ -9,12 +8,10 @@ import { MatTableDataSource } from '@angular/material/table'
 })
 export class PostsComponent implements OnInit {
   
-  list:MatTableDataSource<any>;
-  columnlist:string[]=['id','nom','prenom','email','Cin','DateNais','Adresse','Telephnoe','DateEmb','Cnss','Salaire','MotdePasse'];
-  constructor(private service:EnsService) { }
+  columnlist:string[]=['Nom','Prenom','Email','Cin','DateNais','Adresse','Telephnoe','DateEmb','Cnss','Salaire'];
+  constructor(public service:EnsService) { }
 
   ngOnInit(): void {
     this.service.GetAll();
-    this.list=new MatTableDataSource(this.service.Enseignants);
       }
 }
