@@ -14,12 +14,12 @@ export class EnseignantsModule {
   nom:string;
   prenom:string;
   email:string;
-  Cin:string;
-  DateNais:Date;
-  Adresse:string;
-  Telephnoe:Int16Array;
-  DateEmb:Date;
-  Cnss:string;
-  Salaire:string;
-  MotdePasse:string;
+  cin:string;
+  dateNais:Date;
+  adresse:string;
+  telephnoe:Int16Array;
+  dateEmb:Date;
+  cnss:string;
+  salaire:string;
+  motdePasse:string;
 }

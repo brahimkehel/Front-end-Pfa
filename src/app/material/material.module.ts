@@ -1,3 +1,4 @@
+import { PostsComponent } from './../modules/posts/posts.component';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {MatToolbarModule} from '@angular/material/toolbar';
@@ -9,7 +10,10 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatButtonModule } from '@angular/material/button';
-import {MatDialogModule} from '@angular/material/dialog';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { NgxPaginationModule } from 'ngx-pagination';
+import { FormsModule } from '@angular/forms';
+import {MatDialogModule} from'@angular/material/dialog';
 
 
 
@@ -24,6 +28,9 @@ const material =[
   MatNativeDateModule,
   MatRadioModule,
   MatButtonModule,
+  NgxPaginationModule,
+  Ng2SearchPipeModule,
+  FormsModule,
   MatDialogModule
 ];
 @NgModule({
