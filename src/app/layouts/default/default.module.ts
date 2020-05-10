@@ -8,6 +8,8 @@ import { NgModule,CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { MatInputModule } from '@angular/material/input';
+import {MatCardModule} from '@angular/material/card';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { MatInputModule } from '@angular/material/input';
     SharedModule,
     MatSidenavModule,
     MatDividerModule,
-    MatInputModule
+    MatInputModule,
+    MatCardModule,
+    FlexLayoutModule
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
