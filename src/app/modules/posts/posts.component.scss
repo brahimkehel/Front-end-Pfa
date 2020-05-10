@@ -6,16 +6,9 @@ button{
 table{
     background-color:lavender;
 }
-.example-card {
-    max-width: 120px;
-    max-height: 170px;
-    margin:0 auto;  
-  }
-.example-card h3{
-  font-weight: bold;
+#divsearch{
+    width: 30% ;
+    float: right;
+    margin-bottom: 5px ;
 }
-  
-  .example-header-image {
-    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-    background-size: cover;
-  }
+

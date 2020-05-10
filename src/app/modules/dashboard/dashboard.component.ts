@@ -1,4 +1,7 @@
+import { FormEtudiantComponent } from './../posts/form-etudiant/form-etudiant.component';
+import { MatDialogModule, MatDialogConfig, MatDialog } from '@angular/material/dialog';
 import { Component, OnInit } from '@angular/core';
+import {NgbCarouselConfig} from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,7 +10,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+   }
 
   ngOnInit(): void {
   }
