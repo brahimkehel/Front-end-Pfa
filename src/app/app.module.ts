@@ -26,7 +26,7 @@ import { NgbModule, NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 
 
 
-
+ 
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +44,7 @@ import { NgbModule, NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
     MaterialModule,
     NgbModule
     
-
+ 
   ],
   exports:[
     MaterialModule

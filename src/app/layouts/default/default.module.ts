@@ -1,5 +1,5 @@
-import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import { NgxPaginationModule } from 'ngx-pagination';
+import { FormEnseignantComponent } from './../../modules/form-enseignant/form-enseignant.component';
+import { FormEtudiantComponent } from './../../modules/posts/form-etudiant/form-etudiant.component';
 import { MatDividerModule } from '@angular/material/divider';
 import { SharedModule } from './../../shared/shared.module';
 import { PostsComponent } from './../../modules/posts/posts.component';
@@ -10,22 +10,25 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { MatInputModule } from '@angular/material/input';
-import {MatCardModule} from '@angular/material/card';
-import {FlexLayoutModule} from '@angular/flex-layout';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { NgxPaginationModule } from 'ngx-pagination';
 import { FormsModule,NgForm, ReactiveFormsModule, FormGroupDirective, FormControl } from '@angular/forms';
 import {MatDialogModule} from'@angular/material/dialog';
+ 
+import {MatCardModule} from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 
-
 @NgModule({
   declarations: [
     DefaultComponent,
     DashboardComponent,
-    PostsComponent
+    PostsComponent,
+    FormEtudiantComponent,
+    FormEnseignantComponent
   ],
   imports: [
     ReactiveFormsModule,
@@ -41,11 +44,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     MatSidenavModule,
     MatDividerModule,
     MatInputModule,
-    MatCardModule,
-    FlexLayoutModule,
     NgxPaginationModule,
     Ng2SearchPipeModule,
     FormsModule,
+    MatCardModule,
     MatDialogModule,
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]

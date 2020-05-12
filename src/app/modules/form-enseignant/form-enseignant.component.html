@@ -1,0 +1,79 @@
+<form [formGroup]="service.form"   class="normal-form">
+    <mat-grid-list cols="2" rowHeight="300px">
+        <mat-grid-tile>
+            <div class="controles-container">
+                <mat-radio-group aria-label="Select an option" formControlName="genre">
+                    <mat-radio-button value="Homme">HOMME</mat-radio-button>
+                    <mat-radio-button value="FEMME">FEMME</mat-radio-button>
+                </mat-radio-group>
+                <mat-form-field>
+                    <mat-label>CIN</mat-label>
+                    <input matInput formControlName="cin" placeholder="Ex. AA199199">
+                    <mat-error>Ce champ est obligatoire</mat-error>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>NOM</mat-label>
+                    <input matInput formControlName="nom" placeholder="Ex. NOM">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>PRENOM</mat-label>
+                    <input matInput formControlName="prenom" placeholder="Ex. PRENOM">
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>E-MAIL</mat-label>
+                    <input matInput formControlName="email" placeholder="Ex. x@x.x" >
+                    <mat-error>EMAIL est invalide.</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput formControlName="dateNais" [matDatepicker]="dateNais" placeholder="Taper votre Date de naissance">
+                    <mat-datepicker-toggle matSuffix [for]="dateNais"></mat-datepicker-toggle>
+                    <mat-datepicker #dateNais></mat-datepicker>
+                    <mat-error>Ce champ est obligatoire.</mat-error>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>ADRESSE</mat-label>
+                    <input matInput formControlName="adresse" placeholder="Ex. AA199199" >
+                    <mat-error>Ce champ est obligatoire.</mat-error>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>TELEPHONE</mat-label>
+                    <input matInput formControlName="telephone" placeholder="Ex. 0600000000">
+                    <mat-error>Ce champ est obligatoire.</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput formControlName="dateEmb" [matDatepicker]="dateEmb" placeholder="Taper votre Date d'embauche">
+                    <mat-datepicker-toggle matSuffix [for]="dateEmb"></mat-datepicker-toggle>
+                    <mat-datepicker #dateEmb></mat-datepicker>
+                    <mat-error>Ce champ est obligatoire.</mat-error>
+                </mat-form-field>
+                <mat-form-field class="example-full-width">
+                    <mat-label>cnss</mat-label>
+                    <input matInput formControlName="cnss" placeholder="Taper votre cnss" >
+                    <mat-error>Ce champ est obligatoire.</mat-error>
+                </mat-form-field>
+                <!-- <mat-label>FILIERE</mat-label>
+                    <select id="selectbox" data-selected="">
+                        <option value="1">Ocean Wall</option>
+                        <option value="2">Skate Park</option>
+                        <option  selected value="3">Mountain View</option>
+                        <option value="4">Cityscape</option>
+                        <option value="5">Workshop</option>
+                    </select> -->
+                <mat-form-field class="example-full-width">
+                    <mat-label>salaire</mat-label>
+                    <input matInput formControlName="salaire" placeholder="Ex. 4000" >
+                    <mat-error>Ce champ est obligatoire.</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Password" type="password" formControlName="motDePasse" required>
+                    <mat-error>Ce champ est obligatoire.</mat-error>
+                </mat-form-field>
+                <div class="button-row">
+                    <button mat-raised-button color="primary" type="submit"
+                        [disabled]="service.form.invalid" (click)="onSubmit()">ENREGISTRER</button>
+                    <button mat-raised-button color="warn">VIDER</button>
+                </div>
+            </div>
+        </mat-grid-tile>
+    </mat-grid-list>
+</form>

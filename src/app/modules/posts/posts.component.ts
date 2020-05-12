@@ -1,5 +1,4 @@
-
-import { MaterialModule } from './../../material/material.module';
+import { FormEnseignantComponent } from './../form-enseignant/form-enseignant.component';
 import { EnsService } from './../../services/ens.service';
 import { NgModule } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
@@ -23,7 +22,8 @@ export class PostsComponent implements OnInit {
         const dialogConfig=new MatDialogConfig();
         dialogConfig.disableClose=true;
         dialogConfig.autoFocus=true;
-        dialogConfig.width="60%";
-        this.dialog.open(FormEtudiantComponent,dialogConfig);
+        dialogConfig.width="50%";
+        dialogConfig.height="95%";
+        this.dialog.open(FormEnseignantComponent,dialogConfig);
       }
 }
