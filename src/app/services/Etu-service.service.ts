@@ -9,7 +9,7 @@ import { Etudiant } from '../classes/utilisateurs/Etudiant.modules';
 export class Etuservice {
 
   constructor(private http:HttpClient) { }
-    url:string="http://localhost:54370/api/Etudiants";
+    url:string="http://localhost:54575/api/Etudiants";
     Etudiants:Etudiant[];
     Etudiant:Etudiant;
     form:FormGroup =new FormGroup({
@@ -33,6 +33,6 @@ export class Etuservice {
     )
   }
   addStudent(){
-    this.http.post(this.url,this.Etudiant);
+    this.http.post(this.url+"/ajouter",this.form.value);
   }
 }
