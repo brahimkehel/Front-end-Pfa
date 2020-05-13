@@ -8,6 +8,7 @@ export class Etudiant {
     adresse:string;
     telephone:string;
     cne:string;
+    genre:string;
     idFiliere:string;
     motDePasse:string;
 }

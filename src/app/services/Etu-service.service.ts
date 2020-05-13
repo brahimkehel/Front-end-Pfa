@@ -21,6 +21,7 @@ export class Etuservice {
     adresse:new FormControl('',Validators.required),
     telephone:new FormControl(0,[Validators.required,Validators.minLength(10)]),
     cne:new FormControl(0),
+    genre:new FormControl(''),
     idFiliere:new FormControl(0),
     motDePasse:new FormControl('',[Validators.required,Validators.minLength(8)])
   })

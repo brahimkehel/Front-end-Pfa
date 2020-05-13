@@ -1,3 +1,4 @@
+import { FormEnseignantComponent } from './../../modules/form-enseignant/form-enseignant.component';
 import { FormEtudiantComponent } from './../../modules/posts/form-etudiant/form-etudiant.component';
 import { MatDividerModule } from '@angular/material/divider';
 import { SharedModule } from './../../shared/shared.module';
@@ -13,7 +14,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FormsModule,NgForm, ReactiveFormsModule, FormGroupDirective, FormControl } from '@angular/forms';
 import {MatDialogModule} from'@angular/material/dialog';
-
+ 
 import {MatCardModule} from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatRadioModule } from '@angular/material/radio';
@@ -21,13 +22,13 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 
-
 @NgModule({
   declarations: [
     DefaultComponent,
     DashboardComponent,
     PostsComponent,
-    FormEtudiantComponent
+    FormEtudiantComponent,
+    FormEnseignantComponent
   ],
   imports: [
     ReactiveFormsModule,
@@ -47,7 +48,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     Ng2SearchPipeModule,
     FormsModule,
     MatCardModule,
-    MatDialogModule,
+    MatDialogModule
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })

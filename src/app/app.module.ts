@@ -23,14 +23,17 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import {Ng2SearchPipeModule} from 'ng2-search-filter';
 import { FormEtudiantComponent } from './modules/posts/form-etudiant/form-etudiant.component';
 import { NgbModule, NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
+import { DatePipe } from '@angular/common';
+import { DialogConfirmComponent } from './modules/dialog-confirm/dialog-confirm.component';
+import {PopupModule} from 'ng2-opd-popup';
 
 
-
-
+ 
 @NgModule({
   declarations: [
     AppComponent,
     AuthentificationComponent,
+    DialogConfirmComponent,
     ],
   imports: [
     BrowserModule,
@@ -42,9 +45,11 @@ import { NgbModule, NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
     NgxPaginationModule,
     Ng2SearchPipeModule,
     MaterialModule,
-    NgbModule
+    NgbModule,
+    PopupModule,
+  
     
-
+ 
   ],
   exports:[
     MaterialModule
@@ -59,6 +64,6 @@ import { NgbModule, NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 }],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   bootstrap: [AppComponent],
-  entryComponents:[FormEtudiantComponent]
+  entryComponents:[FormEtudiantComponent,DialogConfirmComponent]
 })
 export class AppModule { }

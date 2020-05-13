@@ -10,16 +10,17 @@ import { CommonModule } from '@angular/common';
   ]
 })
 export class EnseignantsModule {
-  id:string;
+  id?:Int16Array;
   nom:string;
   prenom:string;
   email:string;
   cin:string;
-  dateNais:Date;
+  dateNais:string;
   adresse:string;
-  telephnoe:Int16Array;
-  dateEmb:Date;
+  telephone:string;
+  dateEmb:string;
   cnss:string;
-  salaire:string;
-  motdePasse:string;
+  salaire:Float32Array;
+  genre:string;
+  motDePasse:string;
 }

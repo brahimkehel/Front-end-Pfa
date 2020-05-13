@@ -4,7 +4,8 @@
     <mat-drawer [opened]="(sideBarOpen)" [mode]="(screenWidth > 840) ? 'side' : 'over'">
         <app-sidebar></app-sidebar>
     </mat-drawer>
-<mat-drawer-content>
+<mat-drawer-content style="background-color:#F0F1F3">
+
     <router-outlet></router-outlet>
 </mat-drawer-content>
 </mat-drawer-container>

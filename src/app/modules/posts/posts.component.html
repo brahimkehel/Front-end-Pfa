@@ -1,17 +1,9 @@
-
-
-
-
 <div style="text-align: center;">
   <button class="mat-fab" (click)="onOpen()">
     <mat-icon class="material-icons" inline=true>add</mat-icon>
   </button>
   <h2>Ajouter Enseignant</h2>
 </div>
-<!--<div class="row">
-  <input type="text" name="searchText" placeholder="search" [(ngModel)]="searchText" >
-</div>   -->
-
 <div class="container">
   
   <mat-form-field>
@@ -27,20 +19,27 @@
     </thead>
     <tbody>
       <tr
-        *ngFor="let ens of this.service.Enseignants |filter:searchText | paginate :{ itemsPerPage: 1,currentPage:number}">
+        *ngFor="let ens of this.service.Enseignants |filter:searchText | paginate :{ itemsPerPage: 10,currentPage:number}">
         <td>{{ens.nom}}</td>
         <td>{{ens.prenom}}</td>
         <td>{{ens.email}}</td>
         <td>{{ens.cin}}</td>
-        <td>{{ens.dateNais | date:'mediumDate'}}</td>
+        <td>{{ens.dateNais | date:'short'}}</td>
         <td>{{ens.adresse}}</td>
-        <td>{{ens.telephnoe}}</td>
-        <td>{{ens.dateEmb}}</td>
+        <td>{{ens.telephone}}</td>
+        <td>{{ens.dateEmb | date:'short'}}</td>
         <td>{{ens.cnss}}</td>
         <td>{{ens.salaire}}</td>
         <td><a>
-            <mat-icon class="material-icons" style="cursor: pointer;">create</mat-icon>
+            <mat-icon class="material-icons" style="cursor: pointer;" (click)="onOpen()">create</mat-icon>
           </a></td>
+          <td>
+            <popup  (confirmClick)="onDelete(ens.id)" (cancelClick)="onCancel()">
+              Vous êtes sûr de vouloir supprimer cet enseignant ? 
+            </popup>
+            <a>
+              <mat-icon class="material-icons" style="cursor: pointer;" (click)="">delete</mat-icon>
+            </a>  </td>         
       </tr>
     </tbody>
   </table>
