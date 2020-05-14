@@ -24,7 +24,9 @@ export class FormEnseignantComponent implements OnInit {
       cnss:null,
       salaire:null,
       genre:null,
-      motDePasse:null
+      motdePasse:null,
+      matiere:null,
+      seance:null
     };
   }
   onSubmit()

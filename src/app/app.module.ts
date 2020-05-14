@@ -1,3 +1,4 @@
+import { MatDialogModule } from '@angular/material/dialog';
 import { PostsComponent } from './modules/posts/posts.component';
 import { Etuservice } from './services/Etu-service.service';
 import { MaterialModule } from './material/material.module';
@@ -23,9 +24,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import {Ng2SearchPipeModule} from 'ng2-search-filter';
 import { FormEtudiantComponent } from './modules/posts/form-etudiant/form-etudiant.component';
 import { NgbModule, NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
-import { DatePipe } from '@angular/common';
 import { DialogConfirmComponent } from './modules/dialog-confirm/dialog-confirm.component';
-import {PopupModule} from 'ng2-opd-popup';
 
 
  
@@ -46,8 +45,8 @@ import {PopupModule} from 'ng2-opd-popup';
     Ng2SearchPipeModule,
     MaterialModule,
     NgbModule,
-    PopupModule,
-  
+    MatDialogModule
+    
     
  
   ],

@@ -31,14 +31,11 @@
         <td>{{ens.cnss}}</td>
         <td>{{ens.salaire}}</td>
         <td><a>
-            <mat-icon class="material-icons" style="cursor: pointer;" (click)="onOpen()">create</mat-icon>
+            <mat-icon class="material-icons" style="cursor: pointer;" (click)="onOpenEdit(ens)">create</mat-icon>
           </a></td>
           <td>
-            <popup  (confirmClick)="onDelete(ens.id)" (cancelClick)="onCancel()">
-              Vous êtes sûr de vouloir supprimer cet enseignant ? 
-            </popup>
             <a>
-              <mat-icon class="material-icons" style="cursor: pointer;" (click)="">delete</mat-icon>
+              <mat-icon class="material-icons" style="cursor: pointer;" (click)="onDelete(ens.id)">delete</mat-icon>
             </a>  </td>         
       </tr>
     </tbody>
