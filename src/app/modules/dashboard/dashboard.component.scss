@@ -1,4 +1,30 @@
-
+.card{
+  width: 100%;
+  height: 100%;
+}
 .col-sm-6{
   margin-bottom: 10px;
+}
+.container{
+  float: right;
+  width: 50%;
+  height: 100%;
+}
+.card-icon{
+  width: 50%;
+  height: 100%;
+  float: left;
+}
+.card-footer{
+  height: 100%;
+  width:100%;
+}
+.card-title{
+  height: 100%;
+  padding-top: 30%;
+}
+h1{
+  font-size:1.5em;
+  font-weight: bolder;
+  font-family: Times, "Times New Roman", serif;
 }

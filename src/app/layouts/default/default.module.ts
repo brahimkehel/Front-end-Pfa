@@ -1,3 +1,5 @@
+import { FormEnseignantUpdateComponent } from './../../modules/form-enseignant-update/form-enseignant-update.component';
+import { PostsEtudiantComponent } from './../../modules/posts-etudiant/posts-etudiant.component';
 import { FormEnseignantComponent } from './../../modules/form-enseignant/form-enseignant.component';
 import { FormEtudiantComponent } from './../../modules/posts/form-etudiant/form-etudiant.component';
 import { MatDividerModule } from '@angular/material/divider';
@@ -28,7 +30,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     DashboardComponent,
     PostsComponent,
     FormEtudiantComponent,
-    FormEnseignantComponent
+    FormEnseignantComponent,
+    PostsEtudiantComponent,
+    FormEnseignantUpdateComponent
   ],
   imports: [
     ReactiveFormsModule,
@@ -48,7 +52,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     Ng2SearchPipeModule,
     FormsModule,
     MatCardModule,
-    MatDialogModule,
+    MatDialogModule
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })

@@ -27,13 +27,17 @@ export class Etuservice {
   })
 
   getAllStudents(){
-    this.http.get(this.url).toPromise().then(
+    return this.http.get(this.url).toPromise().then(
       res=>{
         this.Etudiants=res as Etudiant[];
       }
     )
   }
   addStudent(){
-    this.http.post(this.url,this.Etudiant);
+    this.http.post(this.url+"/ajouter",this.form.value);
+  }
+  NbEtudiants()
+  {
+    return this.http.get(this.url+"/Nb");
   }
 }

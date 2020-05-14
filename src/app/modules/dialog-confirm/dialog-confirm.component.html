@@ -1,0 +1,14 @@
+
+    <div class="container">
+    <div class="modal-header">
+				<h4 class="modal-title"><strong>Vous êtes sûr de vouloir supprimer cet enseignant ?</strong></h4>	
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			</div>
+			<div class="modal-body">
+				<p></p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-info" (click)="closeDialog()"  [mat-dialog-close]="false" data-dismiss="modal">Fermer</button>
+				<button type="button" class="btn btn-danger" [mat-dialog-close]="true" >Supprimer</button>
+      </div>
+    </div>

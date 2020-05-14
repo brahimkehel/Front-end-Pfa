@@ -10,6 +10,7 @@ export class DefaultComponent implements OnInit {
 
   sideBarOpen=true;
   screenWidth:number;
+
   constructor() { 
     this.screenWidth = window.innerWidth;
     window.onresize = () => {
@@ -25,4 +26,5 @@ export class DefaultComponent implements OnInit {
   {
     this.sideBarOpen=!this.sideBarOpen;
   }  
+
 }

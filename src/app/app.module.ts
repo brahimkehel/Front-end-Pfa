@@ -1,3 +1,4 @@
+import { MatDialogModule } from '@angular/material/dialog';
 import { PostsComponent } from './modules/posts/posts.component';
 import { Etuservice } from './services/Etu-service.service';
 import { MaterialModule } from './material/material.module';
@@ -23,8 +24,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import {Ng2SearchPipeModule} from 'ng2-search-filter';
 import { FormEtudiantComponent } from './modules/posts/form-etudiant/form-etudiant.component';
 import { NgbModule, NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
-import { PostsEtudiantComponent } from './modules/posts-etudiant/posts-etudiant.component';
-
+import { DialogConfirmComponent } from './modules/dialog-confirm/dialog-confirm.component';
 
 
  
@@ -32,7 +32,7 @@ import { PostsEtudiantComponent } from './modules/posts-etudiant/posts-etudiant.
   declarations: [
     AppComponent,
     AuthentificationComponent,
-    PostsEtudiantComponent,
+    DialogConfirmComponent
     ],
   imports: [
     BrowserModule,
@@ -44,7 +44,9 @@ import { PostsEtudiantComponent } from './modules/posts-etudiant/posts-etudiant.
     NgxPaginationModule,
     Ng2SearchPipeModule,
     MaterialModule,
-    NgbModule
+    NgbModule,
+    MatDialogModule
+    
     
  
   ],
@@ -61,6 +63,6 @@ import { PostsEtudiantComponent } from './modules/posts-etudiant/posts-etudiant.
 }],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   bootstrap: [AppComponent],
-  entryComponents:[FormEtudiantComponent]
+  entryComponents:[FormEtudiantComponent,DialogConfirmComponent]
 })
 export class AppModule { }

@@ -20,7 +20,9 @@ export class EnseignantsModule {
   telephone:string;
   dateEmb:string;
   cnss:string;
-  salaire:string;
+  salaire:Float32Array;
   genre:string;
-  motDePasse:string;
+  motdePasse:string;
+  matiere:Int16Array;
+  seance:Int16Array;
 }

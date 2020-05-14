@@ -3,9 +3,7 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
-import { validateBasis } from '@angular/flex-layout';
-import { DatePipe } from '@angular/common';
-
+import { from } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -16,6 +14,7 @@ export class EnsService {
   url:string='http://localhost:54575/api';
   constructor(private http:HttpClient,private router:Router) { }
   form:FormGroup =new FormGroup({
+    id:new FormControl(''),
     cin:new FormControl('',Validators.required),
     dateNais:  new FormControl(''),
     nom:new FormControl('',Validators.required),
@@ -27,7 +26,9 @@ export class EnsService {
     genre:new FormControl(''),
     cnss:new FormControl(''),
     salaire:new FormControl(0,[Validators.required,Validators.minLength(4)]),
-    motDePasse:new FormControl('',[Validators.required,Validators.minLength(8)]),
+    motdePasse:new FormControl('',[Validators.required,Validators.minLength(8)]),
+    matiere:new FormControl(),
+    seance:new FormControl()
   });
 
   GetAll()
@@ -38,26 +39,19 @@ export class EnsService {
       } 
     );
   }
-  returndate():AbstractControl
-  {
-    return this.form.get("dateNais").value;
+  fillForm(ens) {
+    this.form.setValue(ens);
   }
   AddEns()
   {
-    return this.http.post(this.url+"/Enseignants/Ajouter",{
-      cin:this.form.get("cin").value,
-      dateNais:this.returndate(),
-      nom:this.form.get("nom").value,
-      prenom:this.form.get("prenom").value,
-      email:this.form.get("email").value,
-      adresse:this.form.get("adresse").value,
-      telephone:this.form.get("telephone").value,
-      dateEmb:this.returndate(),
-      cnss:this.form.get("cnss").value,
-      salaire:this.form.get("salaire").value,
-      genre:this.form.get("genre").value,
-      motDePasse:this.form.get("motDePasse").value
-    });
+    return this.http.post(this.url+"/Enseignants/Ajouter",this.form.value);
+  }
+  deleteEns(id:Int16Array)
+  {
+    return this.http.delete(this.url+"/Enseignants/"+id);
+  }
+  NbEnseignants(){
+    return this.http.get(this.url+"/Enseignants/Nb");
   }
 
 }

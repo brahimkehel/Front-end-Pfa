@@ -1,7 +1,7 @@
 export class Etudiant {
-    id:string;
+    id?:Int16Array;
     cin:string;
-    dateNais:string;
+    dateNais:Date;
     nom:string;
     prenom:string;
     email:string;

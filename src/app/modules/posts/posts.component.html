@@ -5,35 +5,41 @@
   <h2>Ajouter Enseignant</h2>
 </div>
 <div class="container">
-  <i class="fa fa-search" aria-hidden="true"></i>
+  
   <mat-form-field>
-    <mat-label>Search</mat-label>
+    <mat-label><i class="fa fa-search" aria-hidden="true"></i>Search</mat-label>
     <input matInput placeholder="Search" name="searchText" [(ngModel)]="searchText" >
   </mat-form-field>
-  <table class="table table-hover">
+  <div class="table-responsive">
+  <table class="table table-hover ">
     <thead>
       <tr>
-        <th *ngFor="let header of columnlist">{{header}}</th>
+        <th *ngFor="let header of columnlist" scope="col">{{header}}</th>
       </tr>
     </thead>
     <tbody>
       <tr
-        *ngFor="let ens of this.service.Enseignants |filter:searchText | paginate :{ itemsPerPage: 1,currentPage:number}">
+        *ngFor="let ens of this.service.Enseignants |filter:searchText | paginate :{ itemsPerPage: 10,currentPage:number}">
         <td>{{ens.nom}}</td>
         <td>{{ens.prenom}}</td>
         <td>{{ens.email}}</td>
         <td>{{ens.cin}}</td>
-        <td>{{ens.dateNais | date:'mediumDate'}}</td>
+        <td>{{ens.dateNais | date:'short'}}</td>
         <td>{{ens.adresse}}</td>
-        <td>{{ens.telephnoe}}</td>
-        <td>{{ens.dateEmb}}</td>
+        <td>{{ens.telephone}}</td>
+        <td>{{ens.dateEmb | date:'short'}}</td>
         <td>{{ens.cnss}}</td>
         <td>{{ens.salaire}}</td>
         <td><a>
-            <mat-icon class="material-icons" style="cursor: pointer;">create</mat-icon>
+            <mat-icon class="material-icons" style="cursor: pointer;" (click)="onOpenEdit(ens)">create</mat-icon>
           </a></td>
+          <td>
+            <a>
+              <mat-icon class="material-icons" style="cursor: pointer;" (click)="onDelete(ens.id)">delete</mat-icon>
+            </a>  </td>         
       </tr>
     </tbody>
   </table>
-  <pagination-controls (pageChange)="number=$event"></pagination-controls>
+</div>
+<pagination-controls (pageChange)="number=$event"></pagination-controls>
 </div>

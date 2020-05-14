@@ -3,6 +3,8 @@ import { UtilisateursModule } from './../classes/utilisateurs/utilisateurs.modul
 import { AuthService } from './../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import {NgForm} from '@angular/forms'
+import { MatDialogConfig, MatDialog } from '@angular/material/dialog';
+import { FormEtudiantComponent } from '../modules/posts/form-etudiant/form-etudiant.component';
 
 @Component({
   selector: 'app-authentification',
@@ -11,8 +13,10 @@ import {NgForm} from '@angular/forms'
 })
 export class AuthentificationComponent implements OnInit {
   
-  constructor(public authservice:AuthService,private router:Router) { }
-
+  constructor(public authservice:AuthService,private router:Router,public dialog:MatDialog) { }
+  setVisible=true;
+  valeur:string="Login";
+  valeurlien="Don't have an account? Register Here"
   ngOnInit(): void {
     this.authservice.utilisateur={
       id:null,
@@ -27,6 +31,7 @@ export class AuthentificationComponent implements OnInit {
     }
   }
   onSubmit(){
+    console.log();
     this.authservice.login().subscribe(
       (res:UtilisateursModule)=>{
         localStorage.setItem('email',res.email);
@@ -47,5 +52,12 @@ export class AuthentificationComponent implements OnInit {
         }
       }
     );
+  }
+  onOpen(){
+    const dialogConfig=new MatDialogConfig();
+    dialogConfig.disableClose=true;
+    dialogConfig.autoFocus=true;
+    dialogConfig.width="60%";
+    this.dialog.open(FormEtudiantComponent,dialogConfig);
   }
 }
