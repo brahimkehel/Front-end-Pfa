@@ -40,4 +40,8 @@ export class FormEnseignantComponent implements OnInit {
   onClear(){
     this.service.form.reset();
   }
+  close(){
+    this.service.form.reset();
+    this.dialog.closeAll();
+  }
 }

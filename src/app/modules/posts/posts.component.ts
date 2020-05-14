@@ -20,7 +20,6 @@ export class PostsComponent implements OnInit {
     this.service.GetAll();
       }
       onOpen(){
-        console.log(this.service.form.value)
         this.service.form.reset();
         const dialogConfig=new MatDialogConfig();
         dialogConfig.disableClose=true;
@@ -43,7 +42,7 @@ export class PostsComponent implements OnInit {
           }
         });
       }
-      onOpenEdit(ens){
+   /* onOpenEdit(ens){
         this.service.fillForm(ens);
         const dialogConfig=new MatDialogConfig();
         dialogConfig.disableClose=true;
@@ -52,7 +51,7 @@ export class PostsComponent implements OnInit {
         dialogConfig.height="95%";
         this.dialog.open(FormEnseignantComponent,dialogConfig);
         console.log(ens);
-      }
+      }*/
      
       
   

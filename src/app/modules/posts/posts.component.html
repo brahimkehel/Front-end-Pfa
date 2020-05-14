@@ -11,7 +11,7 @@
     <input matInput placeholder="Search" name="searchText" [(ngModel)]="searchText" >
   </mat-form-field>
   <div class="table-responsive">
-  <table class="table table-hover ">
+  <table class="table table-hover table-bordered">
     <thead>
       <tr>
         <th *ngFor="let header of columnlist" scope="col">{{header}}</th>
@@ -31,7 +31,7 @@
         <td>{{ens.cnss}}</td>
         <td>{{ens.salaire}}</td>
         <td><a>
-            <mat-icon class="material-icons" style="cursor: pointer;" (click)="onOpenEdit(ens)">create</mat-icon>
+            <mat-icon class="material-icons" style="cursor: pointer;">create</mat-icon>
           </a></td>
           <td>
             <a>

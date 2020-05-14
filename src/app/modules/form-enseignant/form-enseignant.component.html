@@ -1,8 +1,8 @@
 <form [formGroup]="service.form"  class="normal-form">
     <mat-grid-list cols="2" rowHeight="300px">
         <mat-grid-tile>
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true" (click)="close()">&times;</button>
             <div class="controles-container">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                 <mat-radio-group aria-label="Select an option" formControlName="genre">
                     <mat-radio-button value="Homme">HOMME</mat-radio-button>
                     <mat-radio-button value="FEMME">FEMME</mat-radio-button>

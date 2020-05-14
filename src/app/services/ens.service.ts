@@ -14,7 +14,6 @@ export class EnsService {
   url:string='http://localhost:54575/api';
   constructor(private http:HttpClient,private router:Router) { }
   form:FormGroup =new FormGroup({
-    id:new FormControl(''),
     cin:new FormControl('',Validators.required),
     dateNais:  new FormControl(''),
     nom:new FormControl('',Validators.required),
@@ -39,13 +38,15 @@ export class EnsService {
       } 
     );
   }
-  fillForm(ens) {
-    this.form.setValue(ens);
-  }
   AddEns()
   {
+    console.log(this.form.value);
     return this.http.post(this.url+"/Enseignants/Ajouter",this.form.value);
   }
+  /*fillForm(ens) {
+    this.form.setValue(ens);
+  }*/
+ 
   deleteEns(id:Int16Array)
   {
     return this.http.delete(this.url+"/Enseignants/"+id);
