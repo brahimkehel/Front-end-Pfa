@@ -1,0 +1,35 @@
+  <div class="container">
+    <i class="fa fa-search" aria-hidden="true"></i>
+    <mat-form-field>
+      <mat-label>Search</mat-label>
+      <input matInput placeholder="Search" name="searchText" [(ngModel)]="searchText" >
+    </mat-form-field>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th *ngFor="let header of columnlist">{{header}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let etu of this.service.Etudiants |filter:searchText | paginate :{ itemsPerPage:4,currentPage:number}">
+          <td>{{etu.nom}}</td>
+          <td>{{etu.prenom}}</td>
+          <td>{{etu.email}}</td>
+          <td>{{etu.cin}}</td>
+          <td>{{etu.dateNais | date:'mediumDate'}}</td>
+          <td>{{etu.adresse}}</td>
+          <td>{{etu.telephone}}</td>
+          <td>{{etu.cne}}</td>
+          <td>{{etu.genre}}</td>
+          <td><a>
+              <mat-icon class="material-icons" style="cursor: pointer;">create</mat-icon>
+            </a></td>
+         <td><a>
+                <mat-icon class="material-icons" style="cursor: pointer;">delete</mat-icon>
+              </a></td>
+        </tr>
+      </tbody>
+    </table>
+    <pagination-controls (pageChange)="number=$event"></pagination-controls>
+  </div>

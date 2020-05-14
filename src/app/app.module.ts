@@ -23,6 +23,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import {Ng2SearchPipeModule} from 'ng2-search-filter';
 import { FormEtudiantComponent } from './modules/posts/form-etudiant/form-etudiant.component';
 import { NgbModule, NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
+import { PostsEtudiantComponent } from './modules/posts-etudiant/posts-etudiant.component';
 
 
 
@@ -31,6 +32,7 @@ import { NgbModule, NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
   declarations: [
     AppComponent,
     AuthentificationComponent,
+    PostsEtudiantComponent,
     ],
   imports: [
     BrowserModule,
