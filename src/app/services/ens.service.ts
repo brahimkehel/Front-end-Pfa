@@ -14,6 +14,7 @@ export class EnsService {
   url:string='http://localhost:54575/api';
   constructor(private http:HttpClient,private router:Router) { }
   form:FormGroup =new FormGroup({
+    id:new FormControl(),
     cin:new FormControl('',Validators.required),
     dateNais:  new FormControl(''),
     nom:new FormControl('',Validators.required),
@@ -29,7 +30,25 @@ export class EnsService {
     matiere:new FormControl(),
     seance:new FormControl()
   });
-
+  onInit(){
+    this.form.setValue({
+      id:0,
+      cin:null,
+      dateNais:null,
+      nom:null,
+      prenom:null,
+      email:null,
+      adresse:null,
+      telephone:null,
+      dateEmb:null,
+      cnss:null,
+      salaire:null,
+      genre:null,
+      motdePasse:null,
+      matiere:null,
+      seance:null
+    });
+  }
   GetAll()
   {
     return this.http.get(this.url+"/Enseignants").toPromise().then(
@@ -43,13 +62,16 @@ export class EnsService {
     console.log(this.form.value);
     return this.http.post(this.url+"/Enseignants/Ajouter",this.form.value);
   }
-  /*fillForm(ens) {
+  fillForm(ens) {
     this.form.setValue(ens);
-  }*/
+  }
  
   deleteEns(id:Int16Array)
   {
     return this.http.delete(this.url+"/Enseignants/"+id);
+  }
+  NbEnseignants(){
+    return this.http.get(this.url+"/Enseignants/Nb");
   }
 
 }

@@ -1,6 +1,7 @@
 import { EnsService } from './../../services/ens.service';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-form-enseignant',
@@ -9,33 +10,19 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class FormEnseignantComponent implements OnInit {
 
-  constructor(public service:EnsService,public dialog:MatDialog) { }
+  constructor(public service:EnsService,public dialog:MatDialog,public notif:ToastrService) { }
 
   ngOnInit(): void {
-    this.service.Enseignant={
-      cin:null,
-      dateNais:null,
-      nom:null,
-      prenom:null,
-      email:null,
-      adresse:null,
-      telephone:null,
-      dateEmb:null,
-      cnss:null,
-      salaire:null,
-      genre:null,
-      motdePasse:null,
-      matiere:null,
-      seance:null
-    };
+    this.service.onInit();
   }
   onSubmit()
   {
     this.service.AddEns().toPromise().then(
-      res=>{this.service.GetAll()},
+      res=>{this.service.GetAll();this.notif.success('Ajouter','Ajouté avec success');},
       err=>{console.log(err);}
     );
    this.dialog.closeAll();
+   
   }
   onClear(){
     this.service.form.reset();
@@ -44,4 +31,5 @@ export class FormEnseignantComponent implements OnInit {
     this.service.form.reset();
     this.dialog.closeAll();
   }
+ 
 }

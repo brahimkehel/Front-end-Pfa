@@ -25,6 +25,7 @@ import {Ng2SearchPipeModule} from 'ng2-search-filter';
 import { FormEtudiantComponent } from './modules/posts/form-etudiant/form-etudiant.component';
 import { NgbModule, NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 import { DialogConfirmComponent } from './modules/dialog-confirm/dialog-confirm.component';
+import { ToastrModule } from 'ngx-toastr';
 
 
  
@@ -32,7 +33,7 @@ import { DialogConfirmComponent } from './modules/dialog-confirm/dialog-confirm.
   declarations: [
     AppComponent,
     AuthentificationComponent,
-    DialogConfirmComponent,
+    DialogConfirmComponent
     ],
   imports: [
     BrowserModule,
@@ -45,7 +46,12 @@ import { DialogConfirmComponent } from './modules/dialog-confirm/dialog-confirm.
     Ng2SearchPipeModule,
     MaterialModule,
     NgbModule,
-    MatDialogModule
+    MatDialogModule,
+    ToastrModule.forRoot({
+      timeOut:2000,
+      positionClass:'toast-top-right',
+      preventDuplicates:true
+    })
     
     
  
@@ -57,7 +63,7 @@ import { DialogConfirmComponent } from './modules/dialog-confirm/dialog-confirm.
     provide:HTTP_INTERCEPTORS,
     useClass:AuthInterceptor,
     multi:true
-  }*/Etuservice,MatDatepickerModule,MatNativeDateModule,MatSelectModule,NgbCarouselConfig,{provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher},{
+  }*/Etuservice,MatDatepickerModule,MatNativeDateModule,MatSelectModule,ToastrModule,NgbCarouselConfig,{provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher},{
     provide: MAT_RADIO_DEFAULT_OPTIONS,
     useValue: { color: 'accent' },
 }],

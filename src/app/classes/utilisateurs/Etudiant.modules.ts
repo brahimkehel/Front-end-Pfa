@@ -1,5 +1,5 @@
 export class Etudiant {
-    id:string;
+    id?:Int16Array;
     cin:string;
     dateNais:Date;
     nom:string;

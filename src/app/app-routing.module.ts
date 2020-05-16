@@ -1,3 +1,4 @@
+import { PostsEtudiantComponent } from './modules/posts-etudiant/posts-etudiant.component';
 import { FormEtudiantComponent } from './modules/posts/form-etudiant/form-etudiant.component';
 
 import { AuthGuardService } from './services/auth-guard.service';
@@ -19,11 +20,12 @@ const routes: Routes = [
     component:DashboardComponent},
     {path:'posts',
     component:PostsComponent,
-    children:[{
-      path:'',
-      component:FormEtudiantComponent
-    }]
-  }],
+    },
+    {
+      path:'Etudiants',
+      component:PostsEtudiantComponent,
+    }
+  ],
   canActivate:[AuthGuardService]
 }];
 

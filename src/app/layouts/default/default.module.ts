@@ -1,3 +1,5 @@
+import { FormEnseignantUpdateComponent } from './../../modules/form-enseignant-update/form-enseignant-update.component';
+import { PostsEtudiantComponent } from './../../modules/posts-etudiant/posts-etudiant.component';
 import { FormEnseignantComponent } from './../../modules/form-enseignant/form-enseignant.component';
 import { FormEtudiantComponent } from './../../modules/posts/form-etudiant/form-etudiant.component';
 import { MatDividerModule } from '@angular/material/divider';
@@ -14,7 +16,6 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { FormsModule,NgForm, ReactiveFormsModule, FormGroupDirective, FormControl } from '@angular/forms';
 import {MatDialogModule} from'@angular/material/dialog';
- 
 import {MatCardModule} from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatRadioModule } from '@angular/material/radio';
@@ -28,7 +29,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     DashboardComponent,
     PostsComponent,
     FormEtudiantComponent,
-    FormEnseignantComponent
+    FormEnseignantComponent,
+    PostsEtudiantComponent,
+    FormEnseignantUpdateComponent
   ],
   imports: [
     ReactiveFormsModule,
@@ -48,7 +51,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     Ng2SearchPipeModule,
     FormsModule,
     MatCardModule,
-    MatDialogModule
+    MatDialogModule,
+    
   ],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
