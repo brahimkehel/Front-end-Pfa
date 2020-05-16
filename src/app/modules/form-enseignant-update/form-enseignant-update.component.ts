@@ -1,3 +1,4 @@
+import { ToastrService } from 'ngx-toastr';
 import { MatDialog } from '@angular/material/dialog';
 import { EnsService } from 'src/app/services/ens.service';
 import { Component, OnInit } from '@angular/core';
@@ -9,14 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormEnseignantUpdateComponent implements OnInit {
 
-  constructor(public service:EnsService,public dialog:MatDialog) { }
+  constructor(public service:EnsService,public dialog:MatDialog,public notif:ToastrService) { }
 
   ngOnInit(): void {
   }
 
   onSubmit() {
-    this.service.AddEns().toPromise().then(
-      res => { this.service.GetAll(); },
+    this.service.UpdateEns().toPromise().then(
+      res => { this.service.GetAll();this.notif.success('Modifer','Modifer avec success');},
       err => { console.log(err); }
     );
     this.dialog.closeAll();

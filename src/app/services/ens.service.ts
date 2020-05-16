@@ -70,6 +70,9 @@ export class EnsService {
   {
     return this.http.delete(this.url+"/Enseignants/"+id);
   }
+  UpdateEns(){
+    return this.http.put(this.url+"/Enseignants/"+this.form.get("id").value,this.form.value);
+  }
   NbEnseignants(){
     return this.http.get(this.url+"/Enseignants/Nb");
   }
