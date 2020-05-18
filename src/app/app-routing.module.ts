@@ -1,3 +1,6 @@
+import { FormAffectationComponent } from './modules/form-affectation/form-affectation.component';
+import { FormSeanceComponent } from './modules/form-seance/form-seance.component';
+import { SeanceComponent } from './modules/seance/seance.component';
 import { PostsEtudiantComponent } from './modules/posts-etudiant/posts-etudiant.component';
 import { FormEtudiantComponent } from './modules/posts/form-etudiant/form-etudiant.component';
 
@@ -10,24 +13,40 @@ import { Routes, RouterModule } from '@angular/router';
 import { DefaultComponent } from './layouts/default/default.component';
 
 const routes: Routes = [
-  {path:'Authentification',
-  component:AuthentificationComponent
+  {
+    path: 'Authentification',
+    component: AuthentificationComponent
   },
-  {path: 'Acceuil',
-  component:DefaultComponent,
-  children:[{
-    path:'',
-    component:DashboardComponent},
-    {path:'posts',
-    component:PostsComponent,
+  {
+    path: 'Acceuil',
+    component: DefaultComponent,
+    children: [{
+      path: '',
+      component: DashboardComponent
     },
     {
-      path:'Etudiants',
-      component:PostsEtudiantComponent,
+      path: 'posts',
+      component: PostsComponent,
+    },
+    {
+      path: 'Etudiants',
+      component: PostsEtudiantComponent,
+    },
+    {
+      path: 'Seance',
+      component: SeanceComponent,
+      children: [{
+        path: 'FormSeance',
+        component: FormSeanceComponent,
+      },
+      {
+        path: 'FormAffectation',
+        component: FormAffectationComponent,
+      }]
     }
-  ],
-  canActivate:[AuthGuardService]
-}];
+    ],
+    canActivate: [AuthGuardService]
+  }];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

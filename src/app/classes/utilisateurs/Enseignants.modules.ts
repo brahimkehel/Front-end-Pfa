@@ -23,6 +23,5 @@ export class EnseignantsModule {
   salaire:Float32Array;
   genre:string;
   motdePasse:string;
-  matiere:Int16Array;
-  seance:Int16Array;
+  affectation:any;
 }

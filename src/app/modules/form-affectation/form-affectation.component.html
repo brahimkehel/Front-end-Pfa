@@ -1,0 +1,32 @@
+<form [formGroup]="service.form" class="normal-form">
+    <div class="row">
+        <div class="col-lg-4 col-md-4 col-sm-4" style="text-align: center;">
+            <mat-form-field>
+                <mat-label>Filieres</mat-label>
+                <select matNativeControl required>
+                    <option formControlName="idFiliere" value="fil.id" *ngFor="let fil of this.service.filieres">{{fil.libelle}}</option>
+                </select>
+            </mat-form-field>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4" style="text-align: center;">
+            <mat-form-field>
+                <mat-label>Matieres</mat-label>
+                <select matNativeControl required>
+                    <option value="mat.id" *ngFor="let mat of this.service.matieres">{{mat.libelle}}</option>
+                </select>
+            </mat-form-field>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-4" style="text-align: center;">
+            <mat-form-field>
+                <mat-label>Enseignants</mat-label>
+                <select matNativeControl required>
+                    <option value="ens.id" *ngFor="let ens of this.ens_service.Enseignants">{{ens.libelle}}</option>
+                </select>
+            </mat-form-field>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <button mat-raised-button color="primary" type="submit" [disabled]="service.form.invalid"
+            >ENREGISTRER</button>
+    </div>
+</form>

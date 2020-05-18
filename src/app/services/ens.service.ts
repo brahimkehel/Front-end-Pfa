@@ -11,7 +11,7 @@ export class EnsService {
 
   Enseignants:EnseignantsModule[];
   Enseignant:EnseignantsModule;
-  url:string='http://localhost:54575/api';
+  url:string='http://localhost:57759/api';
   constructor(private http:HttpClient,private router:Router) { }
   form:FormGroup =new FormGroup({
     id:new FormControl(),
@@ -27,8 +27,7 @@ export class EnsService {
     cnss:new FormControl(''),
     salaire:new FormControl(0,[Validators.required,Validators.minLength(4)]),
     motdePasse:new FormControl('',[Validators.required,Validators.minLength(8)]),
-    matiere:new FormControl(),
-    seance:new FormControl()
+    affectation:new FormControl()
   });
   onInit(){
     this.form.setValue({
@@ -45,10 +44,9 @@ export class EnsService {
       salaire:null,
       genre:null,
       motdePasse:null,
-      matiere:null,
-      seance:null
-    });
-  }
+      affectation:null
+    });}
+    
   GetAll()
   {
     return this.http.get(this.url+"/Enseignants").toPromise().then(
