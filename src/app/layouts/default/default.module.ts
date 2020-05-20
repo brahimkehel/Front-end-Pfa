@@ -1,3 +1,6 @@
+import { FormAffectationComponent } from './../../modules/form-affectation/form-affectation.component';
+import { FormSeanceComponent } from './../../modules/form-seance/form-seance.component';
+import { SeanceComponent } from './../../modules/seance/seance.component';
 import { FormEnseignantUpdateComponent } from './../../modules/form-enseignant-update/form-enseignant-update.component';
 import { PostsEtudiantComponent } from './../../modules/posts-etudiant/posts-etudiant.component';
 import { FormEnseignantComponent } from './../../modules/form-enseignant/form-enseignant.component';
@@ -31,7 +34,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     FormEtudiantComponent,
     FormEnseignantComponent,
     PostsEtudiantComponent,
-    FormEnseignantUpdateComponent
+    FormEnseignantUpdateComponent,
+    SeanceComponent,
+    FormSeanceComponent,
+    FormAffectationComponent,
   ],
   imports: [
     ReactiveFormsModule,

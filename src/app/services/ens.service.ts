@@ -45,8 +45,8 @@ export class EnsService {
       genre:null,
       motdePasse:null,
       affectation:null
-    });
-  }
+    });}
+    
   GetAll()
   {
     return this.http.get(this.url+"/Enseignants").toPromise().then(

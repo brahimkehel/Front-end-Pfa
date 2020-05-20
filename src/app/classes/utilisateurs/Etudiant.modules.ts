@@ -9,6 +9,6 @@ export class Etudiant {
     telephone:string;
     cne:string;
     genre:string;
-    idFiliere:string;
+    idFiliere:Int16Array;
     motDePasse:string;
 }

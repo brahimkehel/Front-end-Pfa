@@ -4,7 +4,8 @@
       <mat-label>Search</mat-label>
       <input matInput placeholder="Search" name="searchText" [(ngModel)]="searchText" >
     </mat-form-field>
-    <table class="table table-hover">
+    <div class="table-responsive">
+    <table class="table table-hover table-bordered">
       <thead>
         <tr>
           <th *ngFor="let header of columnlist">{{header}}</th>
@@ -17,19 +18,21 @@
           <td>{{etu.prenom}}</td>
           <td>{{etu.email}}</td>
           <td>{{etu.cin}}</td>
-          <td>{{etu.dateNais | date:'mediumDate'}}</td>
+          <td>{{etu.dateNais | date:'short'}}</td>
           <td>{{etu.adresse}}</td>
           <td>{{etu.telephone}}</td>
           <td>{{etu.cne}}</td>
           <td>{{etu.genre}}</td>
+          <td>{{etu.filiere}}</td>
           <td><a>
-              <mat-icon class="material-icons" style="cursor: pointer;">create</mat-icon>
+              <mat-icon class="material-icons" style="cursor: pointer;" (click)="onOpenEdit(etu)">create</mat-icon>
             </a></td>
          <td><a>
-                <mat-icon class="material-icons" style="cursor: pointer;">delete</mat-icon>
+                <mat-icon class="material-icons" style="cursor: pointer;" (click)="onDelete(etu.id)">delete</mat-icon>
               </a></td>
         </tr>
       </tbody>
     </table>
+  </div>
     <pagination-controls (pageChange)="number=$event"></pagination-controls>
   </div>

@@ -9,7 +9,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class AuthService {
   
   utilisateur:UtilisateursModule;
-  url:string='http://localhost:54575/api';
+  url:string='http://localhost:57759/api';
   
   constructor(private http:HttpClient,private router:Router) { }
 
