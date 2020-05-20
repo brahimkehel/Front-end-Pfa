@@ -1,1 +1,68 @@
-<p>form-seance works!</p>
+<div style="text-align: center;margin:10px auto;">
+    <h1 style="color:#2F5D98;font-weight: bold;outline: double;outline-width:thick ;">Affecter une combinaison</h1>
+</div>
+<br>
+<div class="row">
+    <div class="col-lg-6 col-md-6 col-sm-6">
+        <mat-form-field>
+            <mat-label><i class="fa fa-search" aria-hidden="true"></i>Search</mat-label>
+            <input matInput placeholder="Search" name="searchText" [(ngModel)]="searchText">
+        </mat-form-field>
+        <div class="table-responsive">
+            <table class="table table-hover table-bordered col-md-auto">
+                <thead>
+                    <tr>
+                        <th *ngFor="let header of columnlist" scope="col">{{header}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr
+                        *ngFor="let aff of this.service.affectations |filter:searchText | paginate :{ itemsPerPage: 10,currentPage:number}">
+                        <td>{{aff.libelle_Filiere}}</td>
+                        <td>{{aff.libelle_Matiere}}</td>
+                        <td>{{aff.libelle_Enseignant}}</td>
+                        <td style="text-align: center;"><a>
+                                <input type="radio" name="checkbox1" (click)="Fill(aff)">
+                            </a></td>
+                    </tr>
+                </tbody>
+            </table>
+            <pagination-controls (pageChange)="number=$event"></pagination-controls>
+        </div>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-6">
+        <div class="container justify-content-center" style="text-align:center;">
+            <form [formGroup]="service.formSeance" class="normal-form">
+                <div class="row justify-content-center">
+                    <mat-form-field>
+                        <mat-label>Filiere</mat-label>
+                        <input matInput [value]="this.service.affectation.libelle_Filiere" readonly>
+                        <input matInput  type="number"   [value]="this.service.affectation.idFiliere" readonly formControlName="idFiliere">
+                    </mat-form-field>
+                    <mat-form-field>
+                        <mat-label>Matiere</mat-label>
+                        <input matInput [value]="this.service.affectation.libelle_Matiere" readonly>
+                        <input matInput type="number"  [value]="this.service.affectation.idMatiere" formControlName="idMatiere">
+                    </mat-form-field>
+                </div>
+                <div class="row justify-content-center">
+                    <mat-form-field>
+                        <mat-label>Enseignant</mat-label>
+                        <input matInput [value]="this.service.affectation.libelle_Enseignant" readonly >
+                    </mat-form-field>
+                    <mat-form-field floatLabel="always">
+                        <mat-label>Durée</mat-label>
+                        <select matNativeControl required formControlName="duree">
+                            <option value="90" [disabled]="this.desable">1H 30Min</option>
+                            <option value="120" [disabled]="this.desable">2H 00Min</option>
+                        </select>
+                    </mat-form-field>
+                </div>
+                <div class="row justify-content-center">
+                    <button mat-raised-button color="primary" [disabled]="service.formSeance.invalid"
+                        (click)="onSubmit()">ENREGISTRER</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
