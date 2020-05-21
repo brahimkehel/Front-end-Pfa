@@ -13,7 +13,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { DefaultComponent } from './layouts/default/default.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: 'Acceuil', pathMatch: 'full'},
+  {path: '', redirectTo: 'Authentification', pathMatch: 'full'},
   {
     path: 'Authentification',
     component: AuthentificationComponent
