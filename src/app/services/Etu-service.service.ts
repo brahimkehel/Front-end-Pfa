@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import{FormGroup,FormControl, Validators} from '@angular/forms';
 import { Etudiant } from '../classes/utilisateurs/Etudiant.modules';
-import { analyzeAndValidateNgModules } from '@angular/compiler';
 
 @Injectable({
   providedIn: 'root'
