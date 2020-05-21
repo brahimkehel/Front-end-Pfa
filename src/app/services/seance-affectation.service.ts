@@ -26,7 +26,6 @@ export class SeanceAffectationService {
     idMatiere: new FormControl(''),
     idEns: new FormControl('')
   });
-
   formSeance: FormGroup = new FormGroup({
     idFiliere: new FormControl(''),
     idMatiere: new FormControl(''),
@@ -84,5 +83,9 @@ export class SeanceAffectationService {
       idMatiere: this.affectation.idMatiere,
       duree: parseInt(this.formSeance.get("duree").value)
     });
+  }
+
+  Deleteaff(id,id2){
+    return this.http.delete(this.url+"Affectations/"+id+"/"+id2)
   }
 }

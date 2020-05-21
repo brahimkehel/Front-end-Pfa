@@ -17,6 +17,7 @@ const routes: Routes = [
     path: 'Authentification',
     component: AuthentificationComponent
   },
+  {path: '', redirectTo: 'Authentification', pathMatch: 'full'},
   {
     path: 'Acceuil',
     component: DefaultComponent,

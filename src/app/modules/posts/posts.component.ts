@@ -46,8 +46,8 @@ export class PostsComponent implements OnInit {
             };
           }
         });
-        
       }
+      
     onOpenEdit(ens){
         this.service.fillForm(ens);
         const dialogConfig=new MatDialogConfig();

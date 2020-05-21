@@ -51,12 +51,9 @@
           <td>{{aff.libelle_Filiere}}</td>
           <td>{{aff.libelle_Matiere}}</td>
           <td>{{aff.libelle_Enseignant}}</td>
-          <td style="text-align: center;"><a>
-              <mat-icon class="material-icons" style="cursor: pointer;">create</mat-icon>
-            </a></td>
             <td style="text-align: center;">
               <a>
-                <mat-icon class="material-icons" style="cursor: pointer;">delete</mat-icon>
+                <mat-icon class="material-icons" style="cursor: pointer;" (click)="onDelete(aff.idFiliere,aff.idMatiere)">delete</mat-icon>
               </a>  </td>         
         </tr>
       </tbody>

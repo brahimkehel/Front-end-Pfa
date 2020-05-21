@@ -1,3 +1,4 @@
+import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { UtilisateursModule } from './../classes/utilisateurs/utilisateurs.module';
 import { AuthService } from './../services/auth.service';
@@ -13,7 +14,7 @@ import { FormEtudiantComponent } from '../modules/posts/form-etudiant/form-etudi
 })
 export class AuthentificationComponent implements OnInit {
   
-  constructor(public authservice:AuthService,private router:Router,public dialog:MatDialog) { }
+  constructor(public authservice:AuthService,private router:Router,public dialog:MatDialog,public notif:ToastrService) { }
   setVisible=true;
   valeur:string="Login";
   valeurlien="Don't have an account? Register Here"
@@ -31,8 +32,7 @@ export class AuthentificationComponent implements OnInit {
     }
   }
   onSubmit(){
-    console.log();
-    this.authservice.login().subscribe(
+    this.authservice.login().toPromise().then(
       (res:UtilisateursModule)=>{
         localStorage.setItem('email',res.email);
         localStorage.setItem('nom',res.nom);
@@ -44,11 +44,7 @@ export class AuthentificationComponent implements OnInit {
       err=>{
         if(err.status==400)
         {
-          console.log("Email ou MotdePasse est incorrect");
-        }
-        else
-        {
-          console.log(err  );
+          this.notif.error('Erreur de saisie','Email ou Mot de passe est incorrect');
         }
       }
     );
