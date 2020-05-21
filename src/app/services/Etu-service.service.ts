@@ -10,7 +10,7 @@ import { analyzeAndValidateNgModules } from '@angular/compiler';
 export class Etuservice {
 
   constructor(private http:HttpClient) { }
-    url:string="http://localhost:57759/api/Etudiants";
+    url:string="http://localhost:57759/api/etudiants";
     Etudiants:Etudiant[];
     Etudiant:Etudiant;
 
