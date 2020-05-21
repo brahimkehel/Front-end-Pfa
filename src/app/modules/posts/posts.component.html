@@ -5,13 +5,12 @@
   <h2>Ajouter Enseignant</h2>
 </div>
 
-<div class="container">
-  
+<div class="table-responsive">  
   <mat-form-field>
     <mat-label><i class="fa fa-search" aria-hidden="true"></i>Search</mat-label>
     <input matInput placeholder="Search" name="searchText" [(ngModel)]="searchText" >
   </mat-form-field>
-  <div class="table-responsive">
+  
   <table class="table table-hover table-bordered">
     <thead>
       <tr>
@@ -41,6 +40,5 @@
       </tr>
     </tbody>
   </table>
-</div>
 <pagination-controls (pageChange)="number=$event"></pagination-controls>
 </div>
