@@ -1,0 +1,48 @@
+<div class="row justify-content-center">
+<div class="col-md-8">
+    <table class="table-responsive">
+        <thead>
+            <tr>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>John</td>
+                <td>Doe</td>
+                <td>john@example.com</td>
+            </tr>
+            <tr>
+                <td>Mary</td>
+                <td>Moe</td>
+                <td>mary@example.com</td>
+            </tr>
+            <tr>
+                <td>July</td>
+                <td>Dooley</td>
+                <td>july@example.com</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="col-md-4">
+    <h2>Hello {{nick}}!</h2>
+    <form (ngSubmit)="sendMessage()" #chatForm="ngForm">
+        <div>
+            <label for="message">Message</label>
+            <input type="text" id="message" name="message" [(ngModel)]="message" required>
+        </div>
+        <button type="submit" id="sendmessage" [disabled]="!chatForm.valid">
+            Send
+        </button>
+    </form>
+    <div class="messages" *ngIf="messages.length > 0">
+        <ul *ngFor="let message of messages">
+            <li class="sent">{{message}}</li>
+        </ul>
+    </div>
+</div>
+</div>

@@ -1,3 +1,4 @@
+import { ChatComponent } from './../../modules/chat/chat.component';
 import { FormAffectationComponent } from './../../modules/form-affectation/form-affectation.component';
 import { FormSeanceComponent } from './../../modules/form-seance/form-seance.component';
 import { SeanceComponent } from './../../modules/seance/seance.component';
@@ -38,6 +39,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     SeanceComponent,
     FormSeanceComponent,
     FormAffectationComponent,
+    ChatComponent
   ],
   imports: [
     ReactiveFormsModule,

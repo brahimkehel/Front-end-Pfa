@@ -1,3 +1,4 @@
+import { ChatComponent } from './modules/chat/chat.component';
 import { FormAffectationComponent } from './modules/form-affectation/form-affectation.component';
 import { FormSeanceComponent } from './modules/form-seance/form-seance.component';
 import { SeanceComponent } from './modules/seance/seance.component';
@@ -13,12 +14,11 @@ import { Routes, RouterModule } from '@angular/router';
 import { DefaultComponent } from './layouts/default/default.component';
 
 const routes: Routes = [
-  
+  {path: '', redirectTo: 'Authentification', pathMatch: 'full'},
   {
     path: 'Authentification',
     component: AuthentificationComponent
   },
-  {path: '', redirectTo: 'Authentification', pathMatch: 'full'},
   {
     path: 'Acceuil',
     component: DefaultComponent,
@@ -44,7 +44,12 @@ const routes: Routes = [
       {
         path: 'FormAffectation',
         component: FormAffectationComponent,
-      }]
+      }
+    ]
+    },
+    {
+      path: 'chat',
+      component: ChatComponent,
     }
     ],
     canActivate: [AuthGuardService]
