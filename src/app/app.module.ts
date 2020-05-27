@@ -27,7 +27,6 @@ import { NgbModule, NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 import { DialogConfirmComponent } from './modules/dialog-confirm/dialog-confirm.component';
 import { ToastrModule } from 'ngx-toastr';
 
-
  
 @NgModule({
   declarations: [

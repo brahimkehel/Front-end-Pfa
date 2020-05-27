@@ -11,6 +11,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatListModule} from '@angular/material/list';
+import { HighchartsChartModule } from 'highcharts-angular';
 
 @NgModule({
   declarations: [HeaderComponent, FooterComponent, SidebarComponent],
@@ -23,7 +24,8 @@ import {MatListModule} from '@angular/material/list';
     FlexLayoutModule,
     MatMenuModule,
     MatListModule,
-    RouterModule
+    RouterModule,
+    HighchartsChartModule
   ],
   exports:[HeaderComponent, FooterComponent, SidebarComponent]
 })

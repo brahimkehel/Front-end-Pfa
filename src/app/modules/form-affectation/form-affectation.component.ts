@@ -15,7 +15,7 @@ export class FormAffectationComponent implements OnInit {
 
   searchText: string;
   number: number = 1;
-  columnlist: string[] = ['Filiere', 'Matiere', 'Enseignant', '', ''];
+  columnlist: string[] = ['Filiere', 'Matiere', 'Enseignant', '' ];
   trouve: boolean;
 
   constructor(public service: SeanceAffectationService, public ens_service: EnsService,public dialogService:DialogConfirmServicesService, public notif: ToastrService, public dialog: MatDialog) { }

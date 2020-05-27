@@ -28,4 +28,7 @@ export class HeaderComponent implements OnInit {
     localStorage.removeItem('id');
     this.router.navigate(['Authentification']);
   }
+  home(){
+    this.router.navigateByUrl('Acceuil')
+  }
 }

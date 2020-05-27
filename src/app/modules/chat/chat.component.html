@@ -30,19 +30,24 @@
 
 <div class="col-md-4">
     <h2>Hello {{nick}}!</h2>
+
+    <div class="container" *ngFor="let message of messages">
+        <p>{{message}}</p>
+        <span class="time-right">{{ heure | date:'shortTime' }}</span>
+      </div>
+
     <form (ngSubmit)="sendMessage()" #chatForm="ngForm">
-        <div>
-            <label for="message">Message</label>
+        <div class="row">
             <input type="text" id="message" name="message" [(ngModel)]="message" required>
-        </div>
-        <button type="submit" id="sendmessage" [disabled]="!chatForm.valid">
+        <button type="submit" id="sendmessage" class="btn btn-primary" [disabled]="!chatForm.valid">
             Send
         </button>
+    </div>
     </form>
-    <div class="messages" *ngIf="messages.length > 0">
+   <!-- <div class="messages" *ngIf="messages.length > 0">
         <ul *ngFor="let message of messages">
             <li class="sent">{{message}}</li>
         </ul>
-    </div>
+    </div>-->
 </div>
 </div>

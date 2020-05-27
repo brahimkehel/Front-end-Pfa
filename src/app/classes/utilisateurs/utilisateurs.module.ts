@@ -15,5 +15,5 @@ export class UtilisateursModule {
   prenom:string;
   email:string;
   motdepasse:string;
-  _status:string;
+  status:string;
 }

@@ -1,44 +1,49 @@
-<div style="text-align: center;margin:10px auto;"><h1 style="color:#2F5D98;font-weight: bold;outline: double;outline-width:thick ;">Affecter une combinaison</h1></div>
+<div style="text-align: center;margin:10px auto;">
+  <h1 style="color:#2F5D98;font-weight: bold;outline: double;outline-width:thick ;">Affecter une combinaison</h1>
+</div>
 <br>
 <form [formGroup]="service.form" class="normal-form">
-    <div class="row">
-        <div class="col-lg-4 col-md-4 col-sm-4" style="text-align: center;">
-            <mat-form-field floatLabel="always">
-                <mat-label>Filieres</mat-label>
-                <select matNativeControl required formControlName="idFiliere">
-                    <option  [value]="fil.id" *ngFor="let fil of this.service.filieres" >{{fil.libelle}}</option>
-                </select>
-            </mat-form-field>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-4" style="text-align: center;">
-            <mat-form-field floatLabel="always">
-                <mat-label>Matieres</mat-label>
-                <select matNativeControl required formControlName="idMatiere">
-                    <option [value]="mat.id" *ngFor="let mat of this.service.matieres" >{{mat.libelle}}</option>
-                </select>
-            </mat-form-field>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-4" style="text-align: center;">
-            <mat-form-field floatLabel="always">
-                <mat-label>Enseignants</mat-label>
-                <select matNativeControl required formControlName="idEns">
-                    <option [value]="ens.id" *ngFor="let ens of this.ens_service.Enseignants" >{{ens.nom}}</option>
-                </select>
-            </mat-form-field>
-        </div>
+  <div class="row">
+    <div class="col-lg-4 col-md-4 col-sm-4" style="text-align: center;">
+      <mat-form-field floatLabel="always">
+        <mat-label>Filieres</mat-label>
+        <select matNativeControl required formControlName="idFiliere">
+          <option selected="selected"></option>
+          <option [value]="fil.id" *ngFor="let fil of this.service.filieres">{{fil.libelle}}</option>
+        </select>
+      </mat-form-field>
     </div>
-    <div class="row justify-content-center">
-        <button mat-raised-button color="primary" [disabled]="service.form.invalid"
-        (click)="onSubmit()">ENREGISTRER</button>
+    <div class="col-lg-4 col-md-4 col-sm-4" style="text-align: center;">
+      <mat-form-field floatLabel="always">
+        <mat-label>Matieres</mat-label>
+        <select matNativeControl required formControlName="idMatiere">
+          <option selected="selected"></option>
+          <option [value]="mat.id" *ngFor="let mat of this.service.matieres">{{mat.libelle}}</option>
+        </select>
+      </mat-form-field>
     </div>
+    <div class="col-lg-4 col-md-4 col-sm-4" style="text-align: center;">
+      <mat-form-field floatLabel="always">
+        <mat-label>Enseignants</mat-label>
+        <select matNativeControl required formControlName="idEns">
+          <option selected="selected"></option>
+          <option [value]="ens.id" *ngFor="let ens of this.ens_service.Enseignants">{{ens.nom}}</option>
+        </select>
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <button mat-raised-button color="primary" [disabled]="service.form.invalid"
+      (click)="onSubmit()">ENREGISTRER</button>
+  </div>
 </form>
 
 <div class="container">
- <mat-form-field>
-      <mat-label><i class="fa fa-search" aria-hidden="true"></i>Search</mat-label>
-      <input matInput placeholder="Search" name="searchText" [(ngModel)]="searchText" >
-    </mat-form-field>
-    <div class="table-responsive">
+  <mat-form-field>
+    <mat-label><i class="fa fa-search" aria-hidden="true"></i>Search</mat-label>
+    <input matInput placeholder="Search" name="searchText" [(ngModel)]="searchText">
+  </mat-form-field>
+  <div class="table-responsive">
     <table class="table table-hover table-bordered">
       <thead>
         <tr>
@@ -51,13 +56,14 @@
           <td>{{aff.libelle_Filiere}}</td>
           <td>{{aff.libelle_Matiere}}</td>
           <td>{{aff.libelle_Enseignant}}</td>
-            <td style="text-align: center;">
-              <a>
-                <mat-icon class="material-icons" style="cursor: pointer;" (click)="onDelete(aff.idFiliere,aff.idMatiere)">delete</mat-icon>
-              </a>  </td>         
+          <td style="text-align: center;">
+            <a>
+              <mat-icon class="material-icons" style="cursor: pointer;" (click)="onDelete(aff.idFiliere,aff.idMatiere)">
+                delete</mat-icon>
+            </a> </td>
         </tr>
       </tbody>
     </table>
   </div>
   <pagination-controls (pageChange)="number=$event"></pagination-controls>
-  </div>
+</div>

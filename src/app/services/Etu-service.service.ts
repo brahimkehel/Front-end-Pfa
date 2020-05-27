@@ -54,6 +54,14 @@ export class Etuservice {
     )
   }
 
+  getNonAppStudents(){
+    return this.http.get(this.url+"/NonApp").toPromise().then(
+      res=>{
+        this.Etudiants=res as Etudiant[];
+      }
+    )
+  }
+
   addStudent(){
     this.http.post(this.url+"/ajouter",this.form.value);
   }
