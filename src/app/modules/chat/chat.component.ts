@@ -1,6 +1,7 @@
 import { Component, OnInit, NgZone } from '@angular/core';
 import { HubConnection, HubConnectionBuilder } from '@aspnet/signalr';
 
+declare const joinini:any;
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',
@@ -13,12 +14,14 @@ export class ChatComponent implements OnInit {
   message = '';
   messages: string[] = [];
   heure:any;
-
+  
   public sendMessage(): void {
-    this._hubConnection
+    if(this.message!=''){
+      this._hubConnection
       .invoke('sendToAll', this.nick, this.message)
       .then(() => this.message = '')
       .catch(err => console.error(err));
+    }    
   }
  
   ngOnInit() {
@@ -32,11 +35,13 @@ export class ChatComponent implements OnInit {
       .catch(err => console.log('Error while establishing connection :('));
  
       this._hubConnection.on('sendToAll', (nick: string, receivedMessage: string) => {
-        const text = `${nick}: ${receivedMessage}`;
+        const text = `"${nick}" : ${receivedMessage}`;
         this.heure=Date.now();
         this.messages.push(text);
       });
  
     }
-  
+    _join(){
+      joinini();
+    }
 }

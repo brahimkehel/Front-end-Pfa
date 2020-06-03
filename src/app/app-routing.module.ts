@@ -1,3 +1,4 @@
+import { StreamsComponent } from './modules/streams/streams.component';
 import { HoldEtudiantComponent } from './modules/hold-etudiant/hold-etudiant.component';
 import { ChatComponent } from './modules/chat/chat.component';
 import { FormAffectationComponent } from './modules/form-affectation/form-affectation.component';
@@ -55,6 +56,10 @@ const routes: Routes = [
     {
       path: 'chat',
       component: ChatComponent,
+    },
+    {
+      path: 'streams',
+      component: StreamsComponent,
     }
     ],
     canActivate: [AuthGuardService]

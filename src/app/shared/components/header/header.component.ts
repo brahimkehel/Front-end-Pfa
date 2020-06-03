@@ -12,6 +12,8 @@ export class HeaderComponent implements OnInit {
 
   @Output() _toggleSideBar: EventEmitter<any> = new EventEmitter();
 
+  _date2:Date=new Date();
+
   constructor(private router: Router) { }
 
   ngOnInit(): void { }
@@ -26,6 +28,8 @@ export class HeaderComponent implements OnInit {
     localStorage.removeItem('prenom');
     localStorage.removeItem('_status');
     localStorage.removeItem('id');
+    console.log((Math.abs((this._date2.getTime()-parseInt(localStorage.getItem('starting_date')))/(1000*60))).toFixed(2));
+    localStorage.removeItem('starting_date');
     this.router.navigate(['Authentification']);
   }
   home(){
