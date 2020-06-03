@@ -1,3 +1,4 @@
+import { HoldEtudiantComponent } from './../../modules/hold-etudiant/hold-etudiant.component';
 import { ChatComponent } from './../../modules/chat/chat.component';
 import { FormAffectationComponent } from './../../modules/form-affectation/form-affectation.component';
 import { FormSeanceComponent } from './../../modules/form-seance/form-seance.component';
@@ -39,7 +40,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     SeanceComponent,
     FormSeanceComponent,
     FormAffectationComponent,
-    ChatComponent
+    ChatComponent,
+    HoldEtudiantComponent
   ],
   imports: [
     ReactiveFormsModule,

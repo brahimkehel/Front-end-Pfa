@@ -12,7 +12,8 @@ export class ChatComponent implements OnInit {
   nick = '';
   message = '';
   messages: string[] = [];
- 
+  heure:any;
+
   public sendMessage(): void {
     this._hubConnection
       .invoke('sendToAll', this.nick, this.message)
@@ -32,6 +33,7 @@ export class ChatComponent implements OnInit {
  
       this._hubConnection.on('sendToAll', (nick: string, receivedMessage: string) => {
         const text = `${nick}: ${receivedMessage}`;
+        this.heure=Date.now();
         this.messages.push(text);
       });
  

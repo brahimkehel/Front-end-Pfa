@@ -6,15 +6,18 @@
                     <i class="material-icons"><img src="assets\Images\icones\User.png" alt=""></i>
                 </div>
                 <div class="container col-xs-6">
-                <p class="card-category ">Utilisateurs :</p>
-                
-                <div class="card-title"><h1 class="display-1 font-weight-normal">{{this.Nbetu}}</h1>
-                </div>
+                    <p class="card-category ">Utilisateurs :</p>
+
+                    <div class="card-title">
+                        <h1 class="display-1 font-weight-normal">{{this.Nbetu}}</h1>
+                    </div>
                 </div>
             </div>
             <div class="card-footer">
                 <div class="stats">
-                    <i><mat-icon class="material-icons">update</mat-icon>Utilisateurs</i> 
+                    <i>
+                        <mat-icon class="material-icons">update</mat-icon>Utilisateurs
+                    </i>
                 </div>
             </div>
         </div>
@@ -24,15 +27,19 @@
             <div class="card-header card-header-success card-header-icon">
                 <div class="card-icon col-xs-6">
                     <i class="material-icons"><img src="assets\Images\icones\Etu_Not_App.png" alt=""></i>
-                    </div>
-                        <div class="container col-xs-6">
-                            <p class="card-category ">Enseignants :</p>
-                        <div class="card-title"><h1 class="display-1 font-weight-normal">{{this.Nbens}}</h1></div>
+                </div>
+                <div class="container col-xs-6">
+                    <p class="card-category ">Etudiants :</p>
+                    <div class="card-title">
+                        <h1 class="display-1 font-weight-normal">{{this.Nbens}}</h1>
                     </div>
                 </div>
+            </div>
             <div class="card-footer">
                 <div class="stats">
-                    <i><mat-icon class="material-icons">warning</mat-icon>Etudiant non approuvé.</i> 
+                    <i routerLinkActive="list-item-active" routerLink="EtudiantNonApp">
+                        <mat-icon class="material-icons">warning</mat-icon>Etudiant non approuvé.
+                    </i>
                 </div>
             </div>
         </div>
@@ -45,12 +52,16 @@
                 </div>
                 <div class="container col-xs-6">
                     <p class="card-category ">Enseignants :</p>
-                <div class="card-title"><h1 class="display-1 font-weight-normal">{{this.Nbens}}</h1></div>
+                    <div class="card-title">
+                        <h1 class="display-1 font-weight-normal">{{this.Nbens}}</h1>
+                    </div>
                 </div>
             </div>
             <div class="card-footer">
                 <div class="stats">
-                    <i><mat-icon class="material-icons">update</mat-icon>Etudiant non approuvé.</i> 
+                    <i>
+                        <mat-icon class="material-icons">update</mat-icon>Enseignants.
+                    </i>
                 </div>
             </div>
         </div>
@@ -63,14 +74,19 @@
                 </div>
                 <div class="container col-xs-6">
                     <p class="card-category ">Enseignants :</p>
-                <div class="card-title"><h1 class="display-1 font-weight-normal">{{this.Nbens}}</h1></div>
+                    <div class="card-title">
+                        <h1 class="display-1 font-weight-normal">{{this.Nbens}}</h1>
+                    </div>
                 </div>
             </div>
             <div class="card-footer">
                 <div class="stats">
-                    <i><mat-icon class="material-icons">update</mat-icon>Etudiant non approuvé.</i> 
+                    <i>
+                        <mat-icon class="material-icons">update</mat-icon>Enseignants.
+                    </i>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<router-outlet></router-outlet>

@@ -25,7 +25,7 @@ export class AuthentificationComponent implements OnInit {
       prenom:null,
       email:null,
       motdepasse:null,
-      _status:null
+      status:null
     };
     if(localStorage.getItem('email')!=null){
       this.router.navigateByUrl('Acceuil');
@@ -37,7 +37,7 @@ export class AuthentificationComponent implements OnInit {
         localStorage.setItem('email',res.email);
         localStorage.setItem('nom',res.nom);
         localStorage.setItem('prenom',res.prenom);
-        localStorage.setItem('_status',res._status);
+        localStorage.setItem('_status',res.status);
         localStorage.setItem('id',res.id);
         this.router.navigateByUrl('Acceuil');
       },

@@ -11,6 +11,7 @@ import { Component, OnInit } from '@angular/core';
 export class SidebarComponent implements OnInit {
 
    userd:UtilisateursModule;
+   status:boolean;
   constructor(private auth:AuthService,private router:Router) { }
 
   ngOnInit(): void {
@@ -19,9 +20,13 @@ export class SidebarComponent implements OnInit {
     email:localStorage.getItem('email'),
     nom:localStorage.getItem('nom'),
     prenom:localStorage.getItem('prenom'),
-    _status:localStorage.getItem('_status'),
+    status:localStorage.getItem('_status'),
     motdepasse:null
   }
+  if(this.userd.status =='Administrateur')
+  this.status=true;
+  else
+  this.status=false;
   }
 
 }
