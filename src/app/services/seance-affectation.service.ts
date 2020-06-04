@@ -29,7 +29,8 @@ export class SeanceAffectationService {
   formSeance: FormGroup = new FormGroup({
     idFiliere: new FormControl(''),
     idMatiere: new FormControl(''),
-    duree: new FormControl('')
+    duree: new FormControl(''),
+    date:new FormControl('')
   });
 
   onInit() {
@@ -41,7 +42,8 @@ export class SeanceAffectationService {
     this.formSeance.setValue({
       idFiliere: null,
       idMatiere: null,
-      duree: null
+      duree: null,
+      date:null
     })
   }
 
@@ -81,7 +83,8 @@ export class SeanceAffectationService {
     return this.http.post(this.url + "Seances", {
       idFiliere: this.affectation.idFiliere,
       idMatiere: this.affectation.idMatiere,
-      duree: parseInt(this.formSeance.get("duree").value)
+      duree: parseInt(this.formSeance.get("duree").value),
+      date:this.formSeance.get("date").value
     });
   }
 

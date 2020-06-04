@@ -1,52 +1,97 @@
-<div class="row justify-content-center">
-    <div class="col-md-8">
-        <table class="table-responsive">
-            <thead>
-                <tr>
-                    <th>Firstname</th>
-                    <th>Lastname</th>
-                    <th>Email</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>John</td>
-                    <td>Doe</td>
-                    <td>john@example.com</td>
-                </tr>
-                <tr>
-                    <td>Mary</td>
-                    <td>Moe</td>
-                    <td>mary@example.com</td>
-                </tr>
-                <tr>
-                    <td>July</td>
-                    <td>Dooley</td>
-                    <td>july@example.com</td>
-                </tr>
-            </tbody>
-        </table>
+<button id="joinini" (click)="_join()">Joindre</button>
+<div class="row justify-content-center" style="height: 100%;">
+    <div class="col-lg-9 col-md-9 col-sm-12 colona">
+       <div class="row" style="width:100%;height: 78.7%; "><div id="full-screen-video"></div></div>
+       <div class="row" style="width:100%;height: 20%;">
+           <div class="col-lg-9" id="call">
+            <div id="remote-streams-container" class=" col-9 ml-1">
+                <div id="remote-streams" class="row">
+                    <!-- insert remote streams dynamically -->
+             </div>
+            </div>
+           </div>
+           <div class="col-lg-3">
+            <div id="local-stream-container" class="col p-0">
+                    <div id="mute-overlay" class="col">
+                        <i id="mic-icon" class="fas fa-microphone-slash"></i>
+                    </div>
+                    <div id="no-local-video" class="col text-center">
+                        <i id="user-icon" class="fas fa-user"></i>
+                    </div>
+                    <div id="local-video" class="col p-0"></div>
+            </div>
+        </div>
+       </div>
     </div>
-<div class= "col-md-4">
-    <h2>Hello {{nick}}!</h2>
-
-    <div class="container" *ngFor="let message of messages">
-        <p>{{message}}</p>
-        <span class="time-right">{{ heure | date:'shortTime' }}</span>
-      </div>
-
-    <form (ngSubmit)="sendMessage()" #chatForm="ngForm">
-        <div class="row">
-            <input type="text" id="message" name="message" [(ngModel)]="message" required>
-        <button type="submit" id="sendmessage" class="btn btn-primary" [disabled]="!chatForm.valid">
-            Send
-        </button>
-    </div>
-    </form>
-   <!-- <div class="messages" *ngIf="messages.length > 0">
-        <ul *ngFor="let message of messages">
-            <li class="sent">{{message}}</li>
-        </ul>
+  <!--   <div id="main-container">
+       <div id="screen-share-btn-container" class="col-2 float-right text-right mt-2">
+            <button id="screen-share-btn" type="button" class="btn btn-lg">
+                <i id="screen-share-icon" class="fas fa-share-square"></i>
+            </button>
+        </div>
+        <div id="buttons-container" class="row justify-content-center mt-3">
+            <div class="col-md-2 text-center">
+                <button id="mic-btn" type="button" class="btn btn-block btn-dark btn-lg">
+                    <i id="mic-icon" class="fas fa-microphone"></i>
+                </button>
+            </div>
+            <div class="col-md-2 text-center">
+                <button id="video-btn" type="button" class="btn btn-block btn-dark btn-lg">
+                    <i id="video-icon" class="fas fa-video"></i>
+                </button>
+            </div>
+            <div class="col-md-2 text-center">
+                <button id="exit-btn" type="button" class="btn btn-block btn-danger btn-lg">
+                    <i id="exit-icon" class="fas fa-phone-slash"></i>
+                </button>
+            </div>
+        </div>
+        <div id="full-screen-video"></div>
+        <div id="lower-video-bar" class="row fixed-bottom mb-1">
+            <div id="remote-streams-container" class="container col-9 ml-1">
+                <div id="remote-streams" class="row">
+                     insert remote streams dynamically 
+                </div>
+            </div>
+            <div id="local-stream-container" class="col p-0">
+                <div id="mute-overlay" class="col">
+                    <i id="mic-icon" class="fas fa-microphone-slash"></i>
+                </div>
+                <div id="no-local-video" class="col text-center">
+                    <i id="user-icon" class="fas fa-user"></i>
+                </div>
+                <div id="local-video" class="col p-0"></div>
+            </div>
+        </div>
     </div>-->
-</div>
+    <div class="col-lg-3 col-sm-8 ">
+        <div class="row colona">
+            <div class="msg_history col-12">
+                <div class="container" *ngFor="let message of messages">
+                    <p>{{message}}<span class="time-right"> {{ heure | date:'shortTime' }}</span></p>
+                </div>
+            </div>
+            <!--<div class="container" *ngFor="let message of messages">
+            <p>{{message}}</p>
+            <span class="time-right">{{ heure | date:'shortTime' }}</span>
+            </div>-->
+            <form (ngSubmit)="sendMessage()" #chatForm="ngForm" class="col-12">
+                <div class="row justify-content-center">
+                    <mat-form-field appearance="fill" id="sift">
+                        <mat-label>Taper votre message</mat-label>
+                        <textarea matInput style="resize: none;" name="message" [(ngModel)]="message"></textarea>
+                    </mat-form-field>
+                    <button type="submit" id="sendmessage" [disabled]="!chatForm.valid">
+                        <mat-icon class="material-icons">send</mat-icon>
+                    </button>
+                    <!--<input type="text" id="message" name="message" [(ngModel)]="message" required>-->
+                </div>
+            </form>
+        </div>
+        <!--<div class="messages" *ngIf="messages.length > 0">
+            <ul *ngFor="let message of messages">
+                <li class="sent">{{message}}</li>
+            </ul>
+        </div>-->
+    </div>
 </div>

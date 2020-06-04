@@ -18,6 +18,7 @@ export class AuthentificationComponent implements OnInit {
   setVisible=true;
   valeur:string="Login";
   valeurlien="Don't have an account? Register Here"
+  _date:Date=new Date();
   ngOnInit(): void {
     this.authservice.utilisateur={
       id:null,
@@ -39,6 +40,7 @@ export class AuthentificationComponent implements OnInit {
         localStorage.setItem('prenom',res.prenom);
         localStorage.setItem('_status',res.status);
         localStorage.setItem('id',res.id);
+        localStorage.setItem('starting_date',this._date.getTime().toString());
         this.router.navigateByUrl('Acceuil');
       },
       err=>{

@@ -33,7 +33,7 @@ export class FormSeanceComponent implements OnInit {
   onSubmit() {
     console.log(this.service.affectation)
     this.service.PostSeance().toPromise().then(
-      res => { this.service.GetSeances();this.notif.success('Créer','Creation avec success');},
+      res => { this.service.GetSeances();this.notif.success('Créer','Creation avec success');this.service.formSeance.reset()},
       err => { console.log(err); console.log(this.service.formSeance.value)})
   }
   Fill(aff: Affectation) {

@@ -1,3 +1,5 @@
+import { StreamsComponent } from './../../modules/streams/streams.component';
+import { PieChartComponent } from './../../modules/widgets/pie-chart/pie-chart.component';
 import { HoldEtudiantComponent } from './../../modules/hold-etudiant/hold-etudiant.component';
 import { ChatComponent } from './../../modules/chat/chat.component';
 import { FormAffectationComponent } from './../../modules/form-affectation/form-affectation.component';
@@ -41,7 +43,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     FormSeanceComponent,
     FormAffectationComponent,
     ChatComponent,
-    HoldEtudiantComponent
+    HoldEtudiantComponent,
+    PieChartComponent,
+    StreamsComponent
   ],
   imports: [
     ReactiveFormsModule,
