@@ -70,22 +70,26 @@
   width: 100vw;
   height: 100%;
 }
-/*
+
 #lower-video-bar {
   height: 20vh;
 }
-*/
+
 #local-stream-container { 
   position: relative; 
-  display: inline-block;
+  width:100%;
   height: 100%;
 }
 #call{
   height: 100%;
+  padding: 0px;
 }
 .remote-stream-container { 
   display: inline-block;
-  height: 100%;
+}
+#remote-stream-container { 
+  height:100%;
+  width:100%;
 }
 #local-video {
   z-index: 1;
@@ -95,7 +99,7 @@
 
 .remote-video {
   z-index: 1;
-  height: 100%;
+  height: 100% !important;
   width: 80%;
   max-width: 500px;
 }

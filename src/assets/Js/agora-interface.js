@@ -241,14 +241,14 @@ function addRemoteStreamMiniView(remoteStream){
   var streamId = remoteStream.getId();
   // append the remote stream template to #remote-streams
   $('#remote-streams').append(
-    $('<div/>', {'id': streamId + '_container',  'class': 'remote-stream-container col'}).append(
-      $('<div/>', {'id': streamId + '_mute', 'class': 'mute-overlay'}).append(
-          $('<i/>', {'class': 'fas fa-microphone-slash'})
+    $('<div/>', {'id': streamId + '_container',  'class': 'remote-stream-container col','style':'display: inline-block;'}).append(
+      $('<div/>', {'id': streamId + '_mute', 'class': 'mute-overlay' , 'style':'position: absolute;z-index: 2;top: 2px;color: #d9d9d9;font-size: 1.5em;padding: 2px 0 0 2px;display: none;'}).append(
+          $('<i/>', {'class': 'fas fa-microphone-slash','style':'-webkit-font-smoothing: antialiased;display: inline-block;font-style: normal;font-variant: normal;text-rendering: auto;line-height: 1;'})
       ),
-      $('<div/>', {'id': streamId + '_no-video', 'class': 'no-video-overlay text-center'}).append(
+      $('<div/>', {'id': streamId + '_no-video', 'class': 'no-video-overlay text-center', 'style':'position: absolute;z-index: 3;width: 100%;top: 40%;color: #cccccc;font-size: 2.5em;margin: 0 auto;display: none;'}).append(
         $('<i/>', {'class': 'fas fa-user'})
       ),
-      $('<div/>', {'id': 'agora_remote_' + streamId, 'class': 'remote-video'})
+      $('<div/>', {'id': 'agora_remote_' + streamId, 'style': 'height:100%;width:100%;z-index: 1'})
     )
   );
   remoteStream.play('agora_remote_' + streamId); 
