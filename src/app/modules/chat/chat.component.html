@@ -1,15 +1,18 @@
 <button id="joinini" (click)="_join()">Joindre</button>
 <div class="row justify-content-center" style="height: 100%;">
     <div class="col-lg-9 col-md-9 col-sm-12 colona">
-       <div class="row" style="width:100%;height: 78.7%; "><div id="full-screen-video"></div></div>
-       <div class="row" style="width:100%;height: 20%;">
+       <div class="row" style="width:100%;height: 78.7%; ">
+        <div id="full-screen-video"></div>
+    </div>
+       <div class="row" style="width:100%;height: 30%;padding-top: 0;">
+        <div id="lower-video-bar" class="row fixed-bottom mb-1">
            <div class="col-lg-9" id="call">
             <div id="remote-streams-container" class=" col-9 ml-1">
                 <div id="remote-streams" class="row">
                     <!-- insert remote streams dynamically -->
              </div>
             </div>
-           </div>
+           </div></div>
            <div class="col-lg-3">
             <div id="local-stream-container" class="col p-0">
                     <div id="mute-overlay" class="col">
