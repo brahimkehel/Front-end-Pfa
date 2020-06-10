@@ -74,7 +74,7 @@ export class SeanceAffectationService {
     });
   }
   GetSeances() {
-    return this.http.get(this.url + "Seances").toPromise().then(
+    return this.http.get(this.url + "Seances/GetAllSeances").toPromise().then(
       res => {
         this.seances = res as Seance[];
       })

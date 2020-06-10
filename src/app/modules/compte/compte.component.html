@@ -1,0 +1,60 @@
+<div class="row justify-content-center"><span>Modifier mon compte</span></div>
+<div class="row justify-content-center m-0">
+<form [formGroup]="formGroup">    
+        <div class="col-lg-4 col-md-6 col-sm-12">
+            <div class="card">
+                <div class="box">
+                    <div class="inputat" style="margin-top: 15%;">
+                        <mat-form-field>
+                            <input matInput type="password" [type]="hide?'password':'text'" placeholder="Mot de passe"
+                                formControlName="password" (input)="onPasswordInput()">
+                            <i class="material-icons" matSuffix
+                                (click)="hide=!hide">{{hide?'visibility':'visibility_off'}}</i>
+                            <mat-error *ngIf="password.hasError('required')">Mot de passe est obligatoire</mat-error>
+                            <mat-error *ngIf="password.hasError('minlength')">Au moins 8 characters
+                            </mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field>
+                            <input matInput type="password" [type]="hide2?'password':'text'"
+                                placeholder="Confirmez Mot de passe" formControlName="password2"
+                                (input)="onPasswordInput()">
+                            <i class="material-icons" matSuffix
+                                (click)="hide2=!hide2">{{hide2?'visibility':'visibility_off'}}</i>
+                            <mat-error *ngIf="password2.hasError('required')">Confirmez votre mot de passe</mat-error>
+                            <mat-error *ngIf="password2.invalid && !password2.hasError('required')">Mot de passe non
+                                identique
+                            </mat-error>
+                        </mat-form-field>
+                        <input type="submit" class="btn btn-primary" value="Modifier MotdePasse"
+        (click)="Enregistrer()" style="background-color:#558CB2;margin-top:15px;" [disabled]="this.formGroup.invalid">
+                    </div>
+                </div>
+            </div>
+        </div>
+</form>
+<form [formGroup]="form2">  
+<div class="col-lg-4 col-md-6 col-sm-12 ">
+    <div class="card">
+        <div class="box">
+            <div class="inputat">
+                <mat-form-field>
+                    <input matInput type="text" placeholder="Nom" formControlName="nom">
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput type="text" placeholder="Prenom" formControlName="prenom">
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput type="text" placeholder="Adresse" formControlName="adresse">
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput type="text" placeholder="Telephone" formControlName="telephone">
+                </mat-form-field>
+                <input type="submit" class="btn btn-primary" value="Modifier"
+        (click)="Enregistrer2()" style="background-color:#558CB2;margin-top:5px;" [disabled]="this.form2.invalid">
+            </div>
+        </div>
+    </div>
+</div>
+</form>
+</div>

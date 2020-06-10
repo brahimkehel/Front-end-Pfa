@@ -1,3 +1,4 @@
+import { CompteComponent } from './../../modules/compte/compte.component';
 import { StreamsComponent } from './../../modules/streams/streams.component';
 import { PieChartComponent } from './../../modules/widgets/pie-chart/pie-chart.component';
 import { HoldEtudiantComponent } from './../../modules/hold-etudiant/hold-etudiant.component';
@@ -45,7 +46,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     ChatComponent,
     HoldEtudiantComponent,
     PieChartComponent,
-    StreamsComponent
+    StreamsComponent,
+    CompteComponent
   ],
   imports: [
     ReactiveFormsModule,
