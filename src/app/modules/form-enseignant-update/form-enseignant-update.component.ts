@@ -10,6 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormEnseignantUpdateComponent implements OnInit {
 
+  hide:boolean=true;
   constructor(public service:EnsService,public dialog:MatDialog,public notif:ToastrService) { }
 
   ngOnInit(): void {

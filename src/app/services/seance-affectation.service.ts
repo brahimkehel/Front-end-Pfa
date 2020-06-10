@@ -74,7 +74,7 @@ export class SeanceAffectationService {
     });
   }
   GetSeances() {
-    return this.http.get(this.url + "Seances").toPromise().then(
+    return this.http.get(this.url + "Seances/GetAllSeances").toPromise().then(
       res => {
         this.seances = res as Seance[];
       })
@@ -90,5 +90,8 @@ export class SeanceAffectationService {
 
   Deleteaff(id,id2){
     return this.http.delete(this.url+"Affectations/"+id+"/"+id2)
+  }
+  deleteSeance(id){
+    return this.http.delete(this.url + "Seances/"+id)
   }
 }

@@ -10,9 +10,9 @@ export class Etuservice {
 
   constructor(private http:HttpClient) { }
     url:string="http://localhost:57759/api/etudiants";
-    Etudiants:Etudiant[];
+    public Etudiants:Etudiant[];
     Etudiant:Etudiant;
-
+    countNb:number=0;
     form:FormGroup =new FormGroup({
     id:new FormControl(),
     cin:new FormControl('',Validators.required),
@@ -47,9 +47,11 @@ export class Etuservice {
     });}
 
   getAllStudents(){
-    return this.http.get(this.url).toPromise().then(
+    return this.http.get(this.url).subscribe(
       res=>{
         this.Etudiants=res as Etudiant[];
+        this.countNb=this.Etudiants.length;
+        console.log("haaaaaaaaaaaaaaaaa "+this.countNb);
       }
     )
   }

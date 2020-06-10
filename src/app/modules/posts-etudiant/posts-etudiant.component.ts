@@ -4,7 +4,7 @@ import { ToastrService } from 'ngx-toastr';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Component, OnInit } from '@angular/core';
 import { Etuservice } from 'src/app/services/Etu-service.service';
-
+import { ThrowStmt } from '@angular/compiler';
 @Component({
   selector: 'app-posts-etudiant',
   templateUrl: './posts-etudiant.component.html',
@@ -14,13 +14,16 @@ export class PostsEtudiantComponent implements OnInit {
 
   searchText: string;
   number: number = 1;
-  columnlist: string[] = ['Nom', 'Prenom', 'Email', 'Cin', 'DateNais', 'Adresse', 'Telephnoe', 'CNE', 'Genre'];
-  constructor(public service: Etuservice,public dialog:MatDialog,public dialogService:DialogConfirmServicesService,public notif:ToastrService) { }
-
+  columnlist: string[] = ['Nom', 'Prenom', 'Email', 'Cin', 'DateNais', 'Adresse', 'Telephnoe', 'CNE', 'Genre','filiere'];
+  
+  constructor(public service: Etuservice,public dialog:MatDialog,public dialogService:DialogConfirmServicesService,public notif:ToastrService) 
+  {}
+  
   ngOnInit(): void {
     this.service.getAllStudents();
   }
-
+ 
+  
   onDelete(id) {
 
     this.dialogService.openConfirmDialog()

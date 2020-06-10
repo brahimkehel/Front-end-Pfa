@@ -7,7 +7,7 @@
       <table class="table table-hover table-bordered">
         <thead>
           <tr>
-            <th *ngFor="let header of columnlist">{{header}}</th>
+            <th *ngFor="let header of columnlist">{{header}}</th><th>Cocher<input type="checkbox"  (change)="bulck($event)"/></th>
           </tr>
         </thead>
         <tbody>
@@ -23,6 +23,7 @@
             <td>{{etu.cne}}</td>
             <td>{{etu.genre}}</td>
             <td>{{etu.filiere}}</td>
+            <td><input type="checkbox" [ngModel]="checks" (change)="Remplir($event,etu.id)"></td>
             <td></td>
           </tr>
         </tbody>

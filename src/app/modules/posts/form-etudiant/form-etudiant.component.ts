@@ -10,7 +10,7 @@ import {ErrorStateMatcher} from '@angular/material/core';
   styleUrls: ['./form-etudiant.component.scss']
 })
 export class FormEtudiantComponent implements OnInit {
-
+ hide:boolean=true;
   constructor(public service: Etuservice,public dialog:MatDialog,public notif:ToastrService) { }
 
   ngOnInit(): void {

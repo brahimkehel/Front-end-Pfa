@@ -32,6 +32,7 @@ const material =[
   Ng2SearchPipeModule,
   FormsModule,
   MatDialogModule
+
 ];
 @NgModule({
   declarations: [],

@@ -9,7 +9,7 @@ import { ToastrService } from 'ngx-toastr';
   styleUrls: ['./form-enseignant.component.scss']
 })
 export class FormEnseignantComponent implements OnInit {
-
+ hide:boolean=true;
   constructor(public service:EnsService,public dialog:MatDialog,public notif:ToastrService) { }
 
   ngOnInit(): void {
