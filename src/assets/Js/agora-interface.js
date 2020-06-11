@@ -138,7 +138,7 @@ function createCameraStream(uid) {
     video: true,
     screen: false
   });
-  localStream.setVideoProfile();
+  localStream.setVideoProfile(cameraVideoProfile);
   localStream.init(function() {
     console.log("getUserMedia successfully");
     // TODO: add check for other streams. play local stream full size if alone in channel
@@ -157,7 +157,7 @@ function createCameraStream(uid) {
 }
 // SCREEN SHARING
 function initScreenShare() {
-  screenClient.init("e50ae9cce87e4609ba406a3a085a0f8f", function () {
+  screenClient.init("03a274c968e24d1aa3d778ab4ea47ae2", function () {
     console.log("AgoraRTC screenClient initialized");
     joinChannelAsScreenShare();
     screenShareActive = true;
