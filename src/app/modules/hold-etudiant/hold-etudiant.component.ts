@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
 import { Etuservice } from 'src/app/services/Etu-service.service';
 import { Component, OnInit } from '@angular/core';
@@ -14,7 +15,9 @@ export class HoldEtudiantComponent implements OnInit {
   columnlist: string[] = ['Nom', 'Prenom', 'Email', 'Cin', 'DateNais', 'Adresse', 'Telephnoe', 'CNE', 'Genre','filiere'];
   checks:boolean=false;
   array=[];
-  constructor(public service: Etuservice,public notif:ToastrService) { }
+  disabled:boolean;
+
+  constructor(public service: Etuservice,public notif:ToastrService,private http:HttpClient) { }
 
   ngOnInit(): void {
     this.service.getNonAppStudents();
@@ -46,5 +49,20 @@ export class HoldEtudiantComponent implements OnInit {
           console.log(this.array);
         }
   }
-
+  checkDisabled(){
+    return this.array.length>0;
+  }
+  Approved(){
+    for(let i of this.array)
+    {
+      this.http.patch("http://localhost:57759/api/Etudiants/" +i,[{
+        "op": "replace",
+        "path": "/approve",
+        "value":"true" }]).toPromise().then(
+          res=>{this.service.getNonAppStudents();console.log("rani tapprovit")},
+          err=>{console.log(err)}
+        );
+        
+    }
+  }
 }

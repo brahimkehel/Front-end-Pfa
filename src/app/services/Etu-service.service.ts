@@ -12,7 +12,7 @@ export class Etuservice {
     url:string="http://localhost:57759/api/etudiants";
     public Etudiants:Etudiant[];
     Etudiant:Etudiant;
-    countNb:number=0;
+
     form:FormGroup =new FormGroup({
     id:new FormControl(),
     cin:new FormControl('',Validators.required),
@@ -50,8 +50,6 @@ export class Etuservice {
     return this.http.get(this.url).subscribe(
       res=>{
         this.Etudiants=res as Etudiant[];
-        this.countNb=this.Etudiants.length;
-        console.log("haaaaaaaaaaaaaaaaa "+this.countNb);
       }
     )
   }
@@ -96,7 +94,8 @@ export class Etuservice {
       adresse:this.form.get("adresse").value,
       telephone:this.form.get("telephone").value,
       cne:this.form.get("cne").value,
-      idFiliere:this.form.get("idFiliere").value
+      idFiliere:this.form.get("idFiliere").value,
+      approve:true
     });
   }
 }

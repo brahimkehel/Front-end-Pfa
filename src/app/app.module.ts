@@ -32,7 +32,7 @@ import { ToastrModule } from 'ngx-toastr';
   declarations: [
     AppComponent,
     AuthentificationComponent,
-    DialogConfirmComponent,
+    DialogConfirmComponent
     ],
   imports: [
     BrowserModule,

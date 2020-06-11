@@ -3,10 +3,11 @@
         <div class="header">
             <img src="  https://www.pngkey.com/png/detail/202-2024792_user-profile-icon-png-download-fa-user-circle.png" alt="smiytek">
             <h3 style="margin-top: 5px;font-weight:bold;">{{userd.email}}</h3>
-            <p>Bonjour: {{userd.nom}} {{userd.prenom}}</p>
+            <p style="font-family:BlinkMacSystemFont, sans-serif;font-size:x-large;text-decoration: underline;">{{userd.nom}} {{userd.prenom}}</p>
         </div>
     </div>
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="#"><mat-icon class="material-icons" style="margin-right:6px;">account_circle</mat-icon >Configurer mon Compte</a>
+    <mat-divider></mat-divider>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="compte"><mat-icon class="material-icons" style="margin-right:6px;">account_circle</mat-icon >Configurer mon Compte</a>
     <mat-divider></mat-divider>
     <h2 matSubheader>Taches</h2>
     <a mat-list-item routerLinkActive="list-item-active" routerLink="posts" *ngIf="status"><mat-icon class="material-icons" style="margin-right:6px;">settings_applications</mat-icon >Gestion des enseignants</a>
@@ -14,7 +15,6 @@
     <a mat-list-item routerLinkActive="list-item-active" routerLink="Seance" *ngIf="status"><mat-icon class="material-icons" style="margin-right:6px;">settings_applications</mat-icon >Gestion des séances</a>
     <a mat-list-item routerLinkActive="list-item-active" routerLink="streams"><mat-icon class="material-icons" style="margin-right:6px;">cast_connected</mat-icon >Streams</a>
     <mat-divider></mat-divider>
-
     <h2 matSubheader>Autres</h2>
-    <a mat-list-item routerLinkActive="list-item-active" routerLink="/"><mat-icon>import_contacts</mat-icon>Bibliothéque</a>
+    <a mat-list-item routerLinkActive="list-item-active" routerLink="/"><mat-icon style="margin-right:6px;">import_contacts</mat-icon>Bibliothéque</a>
 </mat-nav-list>

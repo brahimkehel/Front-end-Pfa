@@ -28,6 +28,9 @@
           </tr>
         </tbody>
       </table>
-      <pagination-controls (pageChange)="number=$event"></pagination-controls>
+      <div class="d-flex justify-content-between">
+        <pagination-controls (pageChange)="number=$event"></pagination-controls>
+        <button [disabled]="!checkDisabled()" (click)="Approved()" class="btn" style="background-color: #558CB2;color:white">Enregistrer</button>
+      </div>
     </div>
   

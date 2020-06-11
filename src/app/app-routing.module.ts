@@ -1,3 +1,5 @@
+import { AdminGuardService } from './services/admin-guard.service';
+import { CompteComponent } from './modules/compte/compte.component';
 import { StreamsComponent } from './modules/streams/streams.component';
 import { HoldEtudiantComponent } from './modules/hold-etudiant/hold-etudiant.component';
 import { ChatComponent } from './modules/chat/chat.component';
@@ -30,15 +32,18 @@ const routes: Routes = [
       children: [{
         path: 'EtudiantNonApp',
         component: HoldEtudiantComponent,
+        canActivate: [AdminGuardService]
       }]
     },
     {
       path: 'posts',
       component: PostsComponent,
+      canActivate: [AdminGuardService]
     },
     {
       path: 'Etudiants',
       component: PostsEtudiantComponent,
+      canActivate: [AdminGuardService]
     },
     {
       path: 'Seance',
@@ -51,7 +56,7 @@ const routes: Routes = [
         path: 'FormAffectation',
         component: FormAffectationComponent,
       }
-    ]
+    ],canActivate: [AdminGuardService]
     },
     {
       path: 'chat',
@@ -60,6 +65,10 @@ const routes: Routes = [
     {
       path: 'streams',
       component: StreamsComponent,
+    },
+    {
+      path: 'compte',
+      component: CompteComponent,
     }
     ],
     canActivate: [AuthGuardService]
