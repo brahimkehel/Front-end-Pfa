@@ -11,4 +11,5 @@ export class Etudiant {
     genre:string;
     idFiliere:Int16Array;
     motDePasse:string;
+    approve:boolean;
 }

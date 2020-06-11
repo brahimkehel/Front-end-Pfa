@@ -1,3 +1,4 @@
+import { DialogConfirmServicesService } from './../../services/dialog-confirm-services.service';
 import { Affectation } from './../../classes/utilisateurs/Affectation.modules';
 import { ToastrService } from 'ngx-toastr';
 import { SeanceAffectationService } from './../../services/seance-affectation.service';
@@ -13,9 +14,10 @@ export class FormSeanceComponent implements OnInit {
   searchText: string;
   number: number = 1;
   columnlist: string[] = ['Filiere', 'Matiere', 'Enseignant', '', ''];
+  columnListSeance:string[]=['Filiere','Matiere','Sujet','Date','Duree'];
   desable:boolean;
 
-  constructor(public service: SeanceAffectationService, public notif: ToastrService) { }
+  constructor(public service: SeanceAffectationService, public notif: ToastrService,private dialogService:DialogConfirmServicesService) { }
 
   ngOnInit(): void {
     this.service.GetAffectation();
@@ -29,6 +31,7 @@ export class FormSeanceComponent implements OnInit {
       libelle_Enseignant:null
     };
     this.desable=true;
+    this.service.GetSeances();
   }
   onSubmit() {
     console.log(this.service.affectation)
@@ -40,4 +43,17 @@ export class FormSeanceComponent implements OnInit {
     this.service.affectation=aff as Affectation;
     this.desable=false;
   }
+  onDeleteSeance(id){
+  this.dialogService.openConfirmDialog()
+      .afterClosed().subscribe(res => {
+        if (res) {
+          this.service.deleteSeance(id).subscribe(res => {
+            this.service.GetSeances();
+            this.notif.error("Supprimer", "Suppression avec success");
+          }), err => {
+            console.log(err);
+          };
+        }
+      });
+    }
 }

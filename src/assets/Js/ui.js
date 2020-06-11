@@ -1,7 +1,7 @@
 
 // join channel modal
 function joinini(  ) {
-  var agoraAppId = "e50ae9cce87e4609ba406a3a085a0f8f";
+  var agoraAppId = "d6e686e0aa344b7b91b2b3b423bba68c";
   var channelName = "TEC";
   initClientAndJoinChannel(agoraAppId, channelName);
   console.log(agoraAppId+" "+channelName);
@@ -84,7 +84,18 @@ function toggleScreenShareBtn() {
 
 function toggleVisibility(elementID, visible) {
   if (visible) {
-    $(elementID).attr("style", "display:block");
+    if(elementID.includes("_mute")){
+      $(elementID).css({"position": "absolute","z-index": "2","top": "2px","color": "#d9d9d9" , "font-size": "1.5em","padding": "2px 0 0 2px" ,"display":"block"});
+      console.log(elementID);
+    }
+    else if(elementID.includes("_no-video")){
+      $(elementID).css({"position": "absolute","z-index": "3","top": "40%","color": "#cccccc", "width": "100%", "font-size": "2.5em","margin": "0 auto" ,"display":"block"});
+      console.log(elementID);
+    }
+    else if(elementID.includes("no-local-video") ||elementID.includes("mute-overlay")){
+      $(elementID).attr("style", "display:block");
+      console.log(elementID);
+    }
   } else {
     $(elementID).attr("style", "display:none");
   }

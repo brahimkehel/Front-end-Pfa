@@ -3,12 +3,12 @@
  */
 
 // video profile settings
-var cameraVideoProfile = '480p_4'; // 640 × 480 @ 30fps  & 750kbs
+var cameraVideoProfile = '480p_3'; // 640 × 480 @ 30fps  & 750kbs
 var screenVideoProfile = '480p_2'; // 640 × 480 @ 30fps
 
 // create client instances for camera (client) and screen share (screenClient)
 var client = AgoraRTC.createClient({mode: 'live', codec: 'h264'}); 
-var screenClient = AgoraRTC.createClient({mode: 'live', codec: 'h264'}); 
+var screenClient = AgoraRTC.createClient({mode: 'rtc', codec: 'h264'}); 
 
 // stream references (keep track of active streams) 
 var remoteStreams = {}; // remote streams obj struct [id : stream] 
@@ -74,6 +74,8 @@ client.on('stream-subscribed', function (evt) {
 client.on("peer-leave", function(evt) {
   var streamId = evt.stream.getId(); // the the stream id
   if(remoteStreams[streamId] != undefined) {
+    toggleVisibility("#"+streamId+"_mute", false);
+    toggleVisibility("#"+streamId+"_no-video", false);
     remoteStreams[streamId].stop(); // stop playing the feed
     delete remoteStreams[streamId]; // remove stream from list
     if (streamId == mainStreamId) {
@@ -100,9 +102,10 @@ client.on("unmute-audio", function (evt) {
   toggleVisibility('#' + evt.uid + '_mute', false);
 });
 
-// show user icon whenever a remote has disabled their video
+// show user icon whenever a remote has disabled their video 
 client.on("mute-video", function (evt) {
   var remoteId = evt.uid;
+  
   // if the main user stops their video select a random user from the list
   if (remoteId != mainStreamId) {
     // if not the main vidiel then show the user icon
@@ -152,11 +155,9 @@ function createCameraStream(uid) {
     console.log("[ERROR] : getUserMedia failed", err);
   });
 }
-var appid="e50ae9cce87e4609ba406a3a085a0f8f";
 // SCREEN SHARING
 function initScreenShare() {
-  agoraAppId=appid;
-  screenClient.init(agoraAppId, function () {
+  screenClient.init("e50ae9cce87e4609ba406a3a085a0f8f", function () {
     console.log("AgoraRTC screenClient initialized");
     joinChannelAsScreenShare();
     screenShareActive = true;
@@ -183,6 +184,7 @@ function joinChannelAsScreenShare() {
       mediaSource:  'screen', // Firefox: 'screen', 'application', 'window' (select one)
     });
     screenStream.setScreenProfile(screenVideoProfile); // set the profile of the screen
+    screenStream.setVideoProfile(cameraVideoProfile)
     screenStream.init(function(){
       console.log("getScreen successful");
       localStreams.screen.stream = screenStream; // keep track of the screen stream
@@ -210,6 +212,7 @@ function joinChannelAsScreenShare() {
     addRemoteStreamMiniView(remoteStreams[mainStreamId]); // send the main video stream to a container
     //localStreams.screen.stream.play('full-screen-video'); // play the screen share as full-screen-video (vortext effect?)
     //$("#video-btn").prop("disabled",true); // disable the video button (as cameara video stream is disabled)
+
   });
   
   screenClient.on('stopScreenSharing', function (evt) {
@@ -233,7 +236,7 @@ function stopScreenShare() {
     localStreams.screen.stream = {}; // reset the stream obj
   }, function(err) {
     console.log("client leave failed ", err); //error handling
-  }); 
+  });  
 }
 
 // REMOTE STREAMS UI
@@ -241,14 +244,14 @@ function addRemoteStreamMiniView(remoteStream){
   var streamId = remoteStream.getId();
   // append the remote stream template to #remote-streams
   $('#remote-streams').append(
-    $('<div/>', {'id': streamId + '_container',  'class': 'remote-stream-container col','style':'display: inline-block;'}).append(
-      $('<div/>', {'id': streamId + '_mute', 'style':'position: absolute;z-index: 2;top: 2px;color: #d9d9d9;font-size: 1.5em;padding: 2px 0 0 2px;'}).append(
-          $('<i/>', {'class': 'fas fa-microphone-slash','style':'-webkit-font-smoothing: antialiased;display: inline-block;font-style: normal;font-variant: normal;text-rendering: auto;line-height: 1;display: none;'})
+    $('<div/>', {'id': streamId + '_container',  'class': 'remote-stream-container col','style':'padding:0'}).append(
+      $('<div/>', {'id': streamId + '_mute', 'class': 'mute-overlay','style':'display:none'}).append(
+          $('<i/>', {'class': 'fas fa-microphone-slash'})
       ),
-      $('<div/>', {'id': streamId + '_no-video', 'style':'position: absolute;z-index: 3;width: 100%;top: 40%;color: #cccccc;font-size: 2.5em;margin: 0 auto;display: none;'}).append(
+      $('<div/>', {'id': streamId + '_no-video', 'class': 'no-video-overlay text-center','style':'display:none'}).append(
         $('<i/>', {'class': 'fas fa-user'})
       ),
-      $('<div/>', {'id': 'agora_remote_' + streamId, 'style': 'height:100%;width:100%;z-index: 1;background:red'})
+      $('<div/>', {'id': 'agora_remote_' + streamId, 'class': 'remote-video','style':'height:100%;width:100%;z-index: 1'})
     )
   );
   remoteStream.play('agora_remote_' + streamId); 
@@ -286,7 +289,6 @@ function leaveChannel() {
     toggleVisibility("#mute-overlay", false); 
     toggleVisibility("#no-local-video", false);
     // show the modal overlay to join
-    $("#modalForm").modal("show"); 
   }, function(err) {
     console.log("client leave failed ", err); //error handling
   });

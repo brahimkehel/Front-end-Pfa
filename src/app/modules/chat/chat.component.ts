@@ -2,6 +2,7 @@ import { Component, OnInit, NgZone } from '@angular/core';
 import { HubConnection, HubConnectionBuilder } from '@aspnet/signalr';
 
 declare const joinini:any;
+declare const sharescreen:any;
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',
@@ -22,7 +23,7 @@ export class ChatComponent implements OnInit {
       .then(() => this.message = '')
       .catch(err => console.error(err));
     }    
-  }
+  }  
  
   ngOnInit() {
     this.nick = localStorage.getItem("nom")+" "+localStorage.getItem("prenom");
@@ -44,4 +45,5 @@ export class ChatComponent implements OnInit {
     _join(){
       joinini();
     }
+
 }

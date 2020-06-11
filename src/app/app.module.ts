@@ -40,7 +40,6 @@ import { ToastrModule } from 'ngx-toastr';
     BrowserAnimationsModule,
     DefaultModule,
     HttpClientModule,
-   
     NgxPaginationModule,
     Ng2SearchPipeModule,
     MaterialModule,

@@ -91,4 +91,7 @@ export class SeanceAffectationService {
   Deleteaff(id,id2){
     return this.http.delete(this.url+"Affectations/"+id+"/"+id2)
   }
+  deleteSeance(id){
+    return this.http.delete(this.url + "Seances/"+id)
+  }
 }

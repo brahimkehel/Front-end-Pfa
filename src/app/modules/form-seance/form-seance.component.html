@@ -9,7 +9,7 @@
             <input matInput placeholder="Search" name="searchText" [(ngModel)]="searchText">
         </mat-form-field>
         <div class="table-responsive">
-            <table class="table table-hover table-bordered col-md-auto">
+            <table class="table table-hover table-bordered col-md-auto" style="text-align: center;">
                 <thead>
                     <tr>
                         <th *ngFor="let header of columnlist" scope="col">{{header}}</th>
@@ -74,4 +74,35 @@
             </form>
         </div>
     </div>
+</div>
+<div class="row">
+    <div class="table-responsive">  
+        <mat-form-field>
+          <mat-label><i class="fa fa-search" aria-hidden="true"></i>Search</mat-label>
+          <input matInput placeholder="Search" name="searchText" [(ngModel)]="searchText" >
+        </mat-form-field>
+        
+        <table class="table table-hover table-bordered" style="text-align: center;">
+          <thead>
+            <tr>
+              <th *ngFor="let header of columnListSeance" scope="col">{{header}}</th><th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              *ngFor="let s of this.service.seances |filter:searchText | paginate :{ itemsPerPage: 10,currentPage:number}">
+              <td>{{s.filiere}}</td>
+              <td>{{s.matiere}}</td>
+              <td>{{s.sujet}} </td>
+              <td>{{s.date}}</td>
+              <td>{{s.duree}}</td>
+                <td>
+                  <a>
+                    <mat-icon class="material-icons" style="cursor: pointer;" (click)="onDeleteSeance(s.id)">delete</mat-icon>
+                  </a></td>         
+            </tr>
+          </tbody>
+        </table>
+      <pagination-controls (pageChange)="number=$event"></pagination-controls>
+      </div>
 </div>
