@@ -59,7 +59,7 @@ export class HoldEtudiantComponent implements OnInit {
         "op": "replace",
         "path": "/approve",
         "value":"true" }]).toPromise().then(
-          res=>{this.service.getNonAppStudents();console.log("rani tapprovit")},
+          res=>{this.service.getNonAppStudents();console.log("rani tapprovit");this.notif.success("Approuver", "Approuver avec success.");},
           err=>{console.log(err)}
         );
         
