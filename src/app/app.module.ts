@@ -26,13 +26,14 @@ import { FormEtudiantComponent } from './modules/posts/form-etudiant/form-etudia
 import { NgbModule, NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
 import { DialogConfirmComponent } from './modules/dialog-confirm/dialog-confirm.component';
 import { ToastrModule } from 'ngx-toastr';
-
+import { FirstPageComponent } from './modules/first-page/first-page.component';
  
 @NgModule({
   declarations: [
     AppComponent,
     AuthentificationComponent,
-    DialogConfirmComponent
+    DialogConfirmComponent,
+    FirstPageComponent,
     ],
   imports: [
     BrowserModule,
@@ -43,13 +44,16 @@ import { ToastrModule } from 'ngx-toastr';
     NgxPaginationModule,
     Ng2SearchPipeModule,
     MaterialModule,
+    ReactiveFormsModule,
     NgbModule,
+    FormsModule,
     MatDialogModule,
     ToastrModule.forRoot({
       timeOut:2000,
       positionClass:'toast-top-right',
       preventDuplicates:true
-    })
+    }),
+    NgbModule
     
     
  
@@ -63,7 +67,7 @@ import { ToastrModule } from 'ngx-toastr';
     multi:true
   }*/Etuservice,MatDatepickerModule,MatNativeDateModule,MatSelectModule,ToastrModule,NgbCarouselConfig,{provide: ErrorStateMatcher, useClass: ShowOnDirtyErrorStateMatcher},{
     provide: MAT_RADIO_DEFAULT_OPTIONS,
-    useValue: { color: 'accent' },
+    useValue: { color: "primary" },
 }],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
   bootstrap: [AppComponent],

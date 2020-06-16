@@ -2,19 +2,20 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import{FormGroup,FormControl, Validators} from '@angular/forms';
 import { Etudiant } from '../classes/utilisateurs/Etudiant.modules';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root'
 })
 export class Etuservice {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient,private notif:ToastrService) { }
     url:string="http://localhost:57759/api/etudiants";
     public Etudiants:Etudiant[];
     Etudiant:Etudiant;
 
     form:FormGroup =new FormGroup({
-    id:new FormControl(),
+    id:new FormControl(0),
     cin:new FormControl('',Validators.required),
     dateNais:  new FormControl(''),
     nom:new FormControl('',Validators.required),
@@ -63,7 +64,12 @@ export class Etuservice {
   }
 
   addStudent(){
-    this.http.post(this.url+"/ajouter",this.form.value);
+    this.http.post(this.url+"/ajouter",this.form.value).toPromise().then(
+      res => {
+        this.getAllStudents(); this.notif.success('Vous êtes inscrit,vous allez recevoir un message de confirmation pour acceder à la plateforme','Inscription');
+        this.form.reset();
+        this.onInit();
+      })
   }
   
   NbEtudiants()

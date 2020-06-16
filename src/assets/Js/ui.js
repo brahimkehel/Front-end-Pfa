@@ -1,8 +1,7 @@
 
 // join channel modal
-function joinini(  ) {
-  var agoraAppId = "d6e686e0aa344b7b91b2b3b423bba68c";
-  var channelName = "TEC";
+function joinini(agoraAppid,channelName,Userid) {
+ 
   initClientAndJoinChannel(agoraAppId, channelName);
   console.log(agoraAppId+" "+channelName);
 };

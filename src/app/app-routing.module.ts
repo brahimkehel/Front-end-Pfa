@@ -1,4 +1,5 @@
 import { UploadFilesComponent } from './modules/upload-files/upload-files.component';
+import { FirstPageComponent } from './modules/first-page/first-page.component';
 import { AdminGuardService } from './services/admin-guard.service';
 import { CompteComponent } from './modules/compte/compte.component';
 import { StreamsComponent } from './modules/streams/streams.component';
@@ -19,7 +20,11 @@ import { Routes, RouterModule } from '@angular/router';
 import { DefaultComponent } from './layouts/default/default.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: 'Authentification', pathMatch: 'full'},
+  {path: '', redirectTo: 'Home', pathMatch: 'full'},
+  {
+    path:'Home',
+    component:FirstPageComponent
+  },
   {
     path: 'Authentification',
     component: AuthentificationComponent
