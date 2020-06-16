@@ -26,10 +26,6 @@ export class FirstPageComponent implements OnInit {
     {
     img:'/assets/Images/Carousel7.jpeg',},
     {
-     
-      img:'/assets/Images/Carousel8.jpeg',
-    },
-    {
     img:'/assets/Images/Carousel9.jpeg'},
     {
     img:'/assets/Images/Carousel10.jpeg'},
@@ -51,5 +47,9 @@ login(){
   display(){
     this.show=false;
     this.disableButton=true;
+  }
+  close(){
+    this.show=true;
+    this.disableButton=false;
   }
 }

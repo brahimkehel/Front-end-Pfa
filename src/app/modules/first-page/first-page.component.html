@@ -2,6 +2,7 @@
   <li id="li-phone"><span id="phone"><span id="icon-call"class="material-icons">call</span>+212-6-61-99-99-00</span></li>
   <li id="li-mail"><span id="phone"><span id="icon-mail"class="material-icons">email</span>ecolemarocainevirtuelle@edu.ma</span></li>
   <li id="li-text"><span id="text">Du lundi au vendredi de 9h à 18h</span></li>
+  <li id="li-text"><a (click)="login()" style="float: right;">Se connecter</a></li>
 </ul>
 <ngb-carousel>
     <ng-template *ngFor="let i of images" ngbSlide>
@@ -10,16 +11,24 @@
       </div>
     </ng-template>
 </ngb-carousel>
-<div class="row justify-content-start" style="position: absolute; top: 15%; width: 100%;">
-  <div class="col-lg-6 col-md-6 col-sm-6">
-    <button mat-raised-button color="primary" type="submit" (click)="display()" [hidden]="this.disableButton"
-    >S'inscrire</button>
+<div class="row justify-content-start" style="position: absolute; top: 13%; width: 80%; margin-left: 40px;">
+  <div class="col-lg-6 col-md-6 col-sm-12">
+    <h1 style="width: 100%; font-size: 5em; font-weight: bolder; font-style: normal;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; color: white; line-height: 1.5em;">Prenez le premier pas</h1>
+    <h2 style="width: 100%; font-size: 3.5em; font-weight: bolder; font-style: normal;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; color: white; line-height: 1.5em;">pour apprendre avec nous </h2>
+    <p style="width: 60%; font-size: medium; font-weight: bold;font-style:italic;color: #1A293E; text-align: center; margin-left: 20px; ">La premiere école virtuelle au MAROC qui offre des meilleurs cours sous la supervision des meilleurs professeurs des universités marocaines et internationnales. </p>
+    <div class="row justify-content-start" style="margin-top: 50px; height: 100px;">
+      <div class="col-lg-6 col-md-6 col-sm-12" style="text-align: center;margin-left: 40px;">
+        <button mat-raised-button color="#C0DBF6" type="submit" (click)="display()" id="btnregister" [hidden]="this.disableButton"
+        >INSCRIVEZ-VOUS</button>
+      </div>  
+    </div>
   </div>
 </div>
   <div class="row justify-content-end" id="container" [hidden]="this.show">
         <div class="col-lg-4 col-md-4 col-sm-12" id="register-container">
           <div class="row" id="header-container">
               <span> Inscrivez-vous </span>
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true" (click)="close()">&times;</button>
           </div>
           <form [formGroup]="service.form" class="normal-form">
               <div class="row justify-content-center">
