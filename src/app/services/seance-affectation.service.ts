@@ -79,6 +79,12 @@ export class SeanceAffectationService {
         this.seances = res as Seance[];
       })
   }
+  GetSpecificSeances(id:any) {
+    return this.http.get(this.url + "Seances/GetSpecificSeances/"+id).toPromise().then(
+      res => {
+        this.seances = res as Seance[];
+      })
+  }
   PostSeance(){
     return this.http.post(this.url + "Seances", {
       idFiliere: this.affectation.idFiliere,
