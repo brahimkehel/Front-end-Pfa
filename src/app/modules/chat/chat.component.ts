@@ -1,7 +1,8 @@
+import { Router } from '@angular/router';
 import { Component, OnInit, NgZone } from '@angular/core';
 import { HubConnection, HubConnectionBuilder } from '@aspnet/signalr';
-
-declare const sharescreen:any;
+declare const joinini:any;
+declare const leaveChannel:any;
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',
@@ -15,6 +16,9 @@ export class ChatComponent implements OnInit {
   messages: string[] = [];
   heure:any;
   
+  constructor(private router:Router) {
+
+  }
   public sendMessage(): void {
     if(this.message!=''){
       this._hubConnection
@@ -40,5 +44,9 @@ export class ChatComponent implements OnInit {
         this.messages.push(text);
       });
  
+    }
+    leave(){
+      leaveChannel();
+      this.router.navigateByUrl('Acceuil/streams');
     }
 }

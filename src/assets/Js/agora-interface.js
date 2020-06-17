@@ -23,12 +23,12 @@ var localStreams = {
     stream: {}
   }
 };
-
+var channel;
 var mainStreamId; // reference to main stream
 var screenShareActive = false; // flag for screen share 
-
 function initClientAndJoinChannel(agoraAppId, channelName) {
   // init Agora SDK
+  channel=channelName;
   client.init(agoraAppId, function () {
     console.log("AgoraRTC client initialized");
     joinChannel(channelName); // join channel upon successfull init
@@ -157,7 +157,7 @@ function createCameraStream(uid) {
 }
 // SCREEN SHARING
 function initScreenShare() {
-  screenClient.init("03a274c968e24d1aa3d778ab4ea47ae2", function () {
+  screenClient.init(agoraAppId, function () {
     console.log("AgoraRTC screenClient initialized");
     joinChannelAsScreenShare();
     screenShareActive = true;
@@ -170,8 +170,7 @@ function initScreenShare() {
 function joinChannelAsScreenShare() {
   var token = generateToken();
   var userID = null; // set to null to auto generate uid on successfull connection
-  var channelName="POO";
-  screenClient.join(token, channelName, userID, function(uid) { 
+  screenClient.join(token, channel, userID, function(uid) { 
     localStreams.screen.id = uid;  // keep track of the uid of the screen stream.
     
     // Create the stream for screen sharing.
