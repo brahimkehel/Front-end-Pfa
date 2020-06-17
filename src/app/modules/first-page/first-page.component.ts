@@ -51,5 +51,6 @@ login(){
   close(){
     this.show=true;
     this.disableButton=false;
+    this.service.onInit();
   }
 }
