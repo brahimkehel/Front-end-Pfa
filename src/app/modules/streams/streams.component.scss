@@ -122,11 +122,19 @@
  
  .frontside .card .card-title,
  .backside .card .card-title {
+     margin-top: 10px;
      color: #007b5e !important;
  }
  
- .frontside .card .card-body img {
+ .frontside .card .card-body #pp {
      width: 120px;
      height: 120px;
      border-radius: 50%;
+     background-color: #011026;
+     margin: 0 auto;
+ }
+ .frontside .card .card-body #pp p{
+     color :white;
+     font-weight: bold;
+     line-height:8;
  }

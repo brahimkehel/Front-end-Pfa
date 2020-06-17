@@ -270,7 +270,7 @@ function addRemoteStreamMiniView(remoteStream){
 
 function leaveChannel() {
   
-  if(screenShareActive) {
+  if(screenShareActive) { 
     stopScreenShare();
   }
 

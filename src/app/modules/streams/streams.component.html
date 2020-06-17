@@ -1,26 +1,28 @@
 <section id="team" class="pb-5">
     <div class="container">
         <h2 class="section-title h1">Vos seances:</h2>
-        <div class="row">
+        <div class="row" *ngIf="!existence"><span>Vous n'avez aucune seance aujourd'hui!</span></div>
+        <ng-container *ngIf="existence">
+        <div class="row" *ngFor="let seance of this.service.seances">
             <!-- Team member -->
             <div class="col-xs-12 col-sm-6 col-md-4">
                 <div class="image-flip" >
                     <div class="mainflip flip-0">
                         <div class="frontside">
                             <div class="card">
-                                <div class="card-body text-center">
-                                    <p><img class=" img-fluid" src="https://sunlimetech.com/portfolio/boot4menu/assets/imgs/team/img_01.png" alt="card image"></p>
-                                    <h4 class="card-title">Sunlimetech</h4>
-                                    <p class="card-text">This is basic card with image on top, title, description and button.</p>
+                                <div class="card-body text-center" >
+                                    <div id="pp"><p>{{seance.matiere}}</p></div>
+                                    <h4 class="card-title">Actif</h4>
+                                    <p class="card-text" style="font-size: medium;">Duree: {{seance.duree}}min {{seance.sujet}}</p>
                                 </div>
                             </div>
                         </div>
                         <div class="backside">
                             <div class="card">
                                 <div class="card-body text-center mt-4">
-                                    <h4 class="card-title">Sunlimetech</h4>
-                                    <p class="card-text">This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.This is basic card with image on top, title, description and button.</p>
-                                    <button class="btn-primary" (click)="Joindre()">Joindre</button>
+                                    <h4 class="card-title">Actif</h4>
+                                    <p class="card-text">Dans l'éducation, le naturel est le sol, l'instituteur est le laboureur, les raisonnements et les bons avis sont les semences.</p>
+                                    <button class="btn-primary" (click)="Joindre(seance.matiere)">Joindre</button>
                                 </div>
                             </div>
                         </div>
@@ -29,5 +31,6 @@
             </div>
             <!-- ./Team member -->
         </div>
+    </ng-container>
     </div>
 </section>

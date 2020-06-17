@@ -1,0 +1,24 @@
+.upload{
+    font-weight:bold;
+    color:#28a745;
+    margin-left: 15px;
+    line-height: 36px;
+}
+thead{
+    background-color: #558DB2;
+}
+tr{
+    border-bottom: 1px black solid;
+    background-color: #DAE4E7;
+}
+@keyframes mymove {
+    from {top: 0px;}
+    to {top: 5px;}
+  }
+.material-icons{
+    cursor: pointer;
+    position: relative;
+}
+.material-icons:hover{
+    animation:mymove 1s infinite;
+}

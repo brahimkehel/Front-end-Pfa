@@ -1,3 +1,4 @@
+import { SeanceAffectationService } from './../../../services/seance-affectation.service';
 import { ToastrService } from 'ngx-toastr';
 import { MatDialog } from '@angular/material/dialog';
 import { Component, OnInit } from '@angular/core';

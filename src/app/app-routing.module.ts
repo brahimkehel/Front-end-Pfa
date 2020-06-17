@@ -1,3 +1,4 @@
+import { UploadFilesComponent } from './modules/upload-files/upload-files.component';
 import { FirstPageComponent } from './modules/first-page/first-page.component';
 import { AdminGuardService } from './services/admin-guard.service';
 import { CompteComponent } from './modules/compte/compte.component';
@@ -74,6 +75,10 @@ const routes: Routes = [
     {
       path: 'compte',
       component: CompteComponent,
+    },
+    {
+      path: 'biblio',
+      component: UploadFilesComponent,
     }
     ],
     canActivate: [AuthGuardService]

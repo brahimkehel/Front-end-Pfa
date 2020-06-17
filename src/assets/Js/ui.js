@@ -1,9 +1,10 @@
 
 // join channel modal
-function joinini(agoraAppid,channelName,Userid) {
+agoraAppId="03a274c968e24d1aa3d778ab4ea47ae2";
+function joinini(channelName) {
  
   initClientAndJoinChannel(agoraAppId, channelName);
-  console.log(agoraAppId+" "+channelName);
+  console.log(channelName);
 };
 
 // UI buttons

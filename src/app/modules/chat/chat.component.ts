@@ -1,7 +1,6 @@
 import { Component, OnInit, NgZone } from '@angular/core';
 import { HubConnection, HubConnectionBuilder } from '@aspnet/signalr';
 
-declare const joinini:any;
 declare const sharescreen:any;
 @Component({
   selector: 'app-chat',
@@ -42,8 +41,4 @@ export class ChatComponent implements OnInit {
       });
  
     }
-    _join(){
-      joinini();
-    }
-
 }
