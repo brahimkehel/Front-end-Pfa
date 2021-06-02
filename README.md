@@ -1,3 +1,5 @@
+C'est une plateform e-learning qui permet l'echange des connaissances en temps reel ,et qui implement un service de streaming .
+
 # MyNgTest3
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.1.
